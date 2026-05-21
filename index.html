@@ -350,8 +350,10 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 .week-panel.empty-state .kv {
   color: var(--tx) !important;
 }
-.sparkline{display:block;margin:2px auto 0;width:80px;height:20px;opacity:.5;}
-.k:hover .sparkline,.rm:hover .sparkline{opacity:.85;}
+.sparkline{display:block;margin:3px auto 0;width:130px;height:44px;opacity:.9;}
+.k:hover .sparkline,.rm:hover .sparkline{opacity:1;}
+/* no-chart cards: vertically center */
+.rm.no-chart,.hc.no-chart{display:flex;flex-direction:column;justify-content:center;min-height:76px;}
 .btn-export{font-size:10px;color:#fff;background:var(--n);padding:3px 11px;border-radius:4px;border:none;cursor:pointer;font-weight:600;font-family:inherit;margin-left:6px;transition:all .15s;}
 .btn-export:hover{background:var(--r2);}
 </style>
@@ -502,18 +504,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="kpi-3">
 <div class="k">
 <div class="kl">峰值下单量</div>
-<div class="kv">251<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +18 W / 周</div>
+<div class="kv">241<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +8 W / 周</div>
 </div>
 <div class="k">
 <div class="kl">日均下单量</div>
-<div class="kv">215<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +16 W / 周</div>
+<div class="kv">203<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; -12 W / 周</div>
 </div>
 <div class="k g">
 <div class="kl">日均分拣量</div>
-<div class="kv g">328<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +15 W / 周</div>
+<div class="kv g">315<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; -13 W / 周</div>
 </div>
 </div>
 <div class="card">
@@ -528,11 +530,11 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="card">
 <div class="sh b">招聘进度（截止 4/27）</div>
 <div class="recruit">
-<div class="rm"><div class="rmn">658</div><div class="rml">累计需求</div></div>
-<div class="rm"><div class="rmn g">512</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn">577</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn g">488</div><div class="rml">累计入职</div></div>
 <div class="rm"><div class="rmn g">85%</div><div class="rml">整体达成率</div></div>
-<div class="rm"><div class="rmn">83%</div><div class="rml">周期内达成率</div></div>
-<div class="rm"><div class="rmn">28</div><div class="rml">4月入职</div></div>
+<div class="rm"><div class="rmn">82%</div><div class="rml">周期内达成率</div></div>
+<div class="rm"><div class="rmn">40</div><div class="rml">4月入职</div></div>
 <div class="rm"><div class="rmn">2</div><div class="rml">AB类岗位入职</div></div>
 </div>
 <div class="pw">
@@ -540,8 +542,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="pb"><div class="pf pg" style="width:85%"></div></div>
 </div>
 <div class="pw" style="padding-top:0;">
-<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">83%</span></div>
-<div class="pb"><div class="pf po" style="width:83%"></div></div>
+<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">82%</span></div>
+<div class="pb"><div class="pf po" style="width:82%"></div></div>
 </div>
 </div>
 <div class="card">
@@ -612,18 +614,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="kpi-3">
 <div class="k">
 <div class="kl">峰值下单量</div>
-<div class="kv">268<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +17 W / 周</div>
+<div class="kv">269<span class="u">&nbsp;W</span></div>
+<div class="kt d">&#9660; -8 W / 周</div>
 </div>
 <div class="k">
 <div class="kl">日均下单量</div>
-<div class="kv">225<span class="u">&nbsp;W</span></div>
+<div class="kv">212<span class="u">&nbsp;W</span></div>
 <div class="kt u">&#9650; +10 W / 周</div>
 </div>
 <div class="k g">
 <div class="kl">日均分拣量</div>
-<div class="kv g">342<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +14 W / 周</div>
+<div class="kv g">320<span class="u">&nbsp;W</span></div>
+<div class="kt d">&#9660; -31 W / 周</div>
 </div>
 </div>
 <div class="card">
@@ -639,21 +641,21 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="card">
 <div class="sh rd">业务大事件</div>
 <ul class="nl">
-<li><div class="nn">1</div><span>1. 运营：日均下单量 225W，日均分拣量 342W，业务持续增长</span></li>
+<li><div class="nn">1</div><span>1. 运营：日均下单量 212W，日均分拣量 320W，业务持续增长</span></li>
 <li><div class="nn">2</div><span>2. GF 收购：GF 确认收购加拿大 YT，交割日定于 6 月 1 日</span></li>
 <li><div class="nn">3</div><span>3. 加拿大 HR 组筹建中，已启动主管招聘</span></li>
 <li><div class="nn">4</div><span>4. 调薪方案已获批，5 月正式执行</span></li>
 <li><div class="nn">5</div><span>5. 供应商全生命周期管理系统进入开发阶段</span></li>
 </ul></div>
 <div class="card">
-<div class="sh b">招聘进度（截止 5/3）</div>
+<div class="sh b">招聘进度（截止 4/20）</div>
 <div class="recruit">
-<div class="rm"><div class="rmn">698</div><div class="rml">累计需求</div></div>
-<div class="rm"><div class="rmn g">568</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn">626</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn g">533</div><div class="rml">累计入职</div></div>
 <div class="rm"><div class="rmn g">85%</div><div class="rml">整体达成率</div></div>
 <div class="rm"><div class="rmn">83%</div><div class="rml">周期内达成率</div></div>
-<div class="rm"><div class="rmn">15</div><div class="rml">5月入职</div></div>
-<div class="rm"><div class="rmn">3</div><div class="rml">AB类岗位入职</div></div>
+<div class="rm"><div class="rmn">81</div><div class="rml">4月入职</div></div>
+<div class="rm"><div class="rmn">7</div><div class="rml">AB类岗位入职</div></div>
 </div>
 <div class="pw">
 <div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">85%</span></div>
@@ -736,18 +738,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="kpi-3">
 <div class="k">
 <div class="kl">峰值下单量</div>
-<div class="kv">285<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +1 W / 周</div>
+<div class="kv">277<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +8 W / 周</div>
 </div>
 <div class="k">
 <div class="kl">日均下单量</div>
-<div class="kv">232<span class="u">&nbsp;W</span></div>
-<div class="kt d">&#9660; -1 W / 周</div>
+<div class="kv">215<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +3 W / 周</div>
 </div>
 <div class="k g">
 <div class="kl">日均分拣量</div>
-<div class="kv g">359<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; 持续增长</div>
+<div class="kv g">351<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +31 W / 周</div>
 </div>
 </div>
 <div style="margin-bottom:14px;">
@@ -760,30 +762,30 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="card">
 <div class="sh">编制情况</div>
 <div class="headcount">
-<div class="hc"><div class="hcn">1989</div><div class="hcl">编制</div></div>
-<div class="hc"><div class="hcn">1432</div><div class="hcl">在职</div></div>
-<div class="hc"><div class="hcn r">72%</div><div class="hcl">整体满编率</div></div>
-<div class="hc"><div class="hcn">66%</div><div class="hcl">AB类岗位满编率</div></div>
-<div class="hc"><div class="hcn">76%</div><div class="hcl">二级部门负责人<br/>满编率（剔除不招）</div></div>
+<div class="hc"><div class="hcn">1912</div><div class="hcl">编制</div></div>
+<div class="hc"><div class="hcn">1442</div><div class="hcl">在职</div></div>
+<div class="hc"><div class="hcn r">75%</div><div class="hcl">整体满编率</div></div>
+<div class="hc"><div class="hcn">67%</div><div class="hcl">AB类岗位满编率</div></div>
+<div class="hc"><div class="hcn">78%</div><div class="hcl">二级部门负责人<br/>满编率（剔除不招）</div></div>
 <div class="hc"><div class="hcn">73%</div><div class="hcl">二级部门负责人<br/>满编率（包含不招）</div></div>
 </div></div>
 <div class="card">
-<div class="sh b">招聘进度（截止 5/10）</div>
+<div class="sh b">招聘进度（截止 4/20）</div>
 <div class="recruit">
-<div class="rm"><div class="rmn">732</div><div class="rml">累计需求</div></div>
-<div class="rm"><div class="rmn g">624</div><div class="rml">累计入职</div></div>
-<div class="rm"><div class="rmn g">85%</div><div class="rml">整体达成率</div></div>
-<div class="rm"><div class="rmn">82%</div><div class="rml">周期内达成率</div></div>
-<div class="rm"><div class="rmn">33</div><div class="rml">5月入职</div></div>
-<div class="rm"><div class="rmn">1</div><div class="rml">AB类岗位入职</div></div>
+<div class="rm"><div class="rmn">656</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn g">565</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn g">86%</div><div class="rml">整体达成率</div></div>
+<div class="rm"><div class="rmn">83%</div><div class="rml">周期内达成率</div></div>
+<div class="rm"><div class="rmn">114</div><div class="rml">4月入职</div></div>
+<div class="rm"><div class="rmn">7</div><div class="rml">AB类岗位入职</div></div>
 </div>
 <div class="pw">
-<div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">85%</span></div>
-<div class="pb"><div class="pf pg" style="width:85%"></div></div>
+<div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">86%</span></div>
+<div class="pb"><div class="pf pg" style="width:86%"></div></div>
 </div>
 <div class="pw" style="padding-top:0;">
-<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">82%</span></div>
-<div class="pb"><div class="pf po" style="width:82%"></div></div>
+<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">83%</span></div>
+<div class="pb"><div class="pf po" style="width:83%"></div></div>
 </div>
 </div>
 <div class="card">
@@ -865,18 +867,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="kpi-3">
 <div class="k">
 <div class="kl">峰值下单量</div>
-<div class="kv">292<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +7 W / 周</div>
+<div class="kv">286<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +9 W / 周</div>
 </div>
 <div class="k">
 <div class="kl">日均下单量</div>
-<div class="kv">238<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +6 W / 周</div>
+<div class="kv">233<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +18 W / 周</div>
 </div>
 <div class="k g">
 <div class="kl">日均分拣量</div>
-<div class="kv g">367<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +8 W / 周</div>
+<div class="kv g">346<span class="u">&nbsp;W</span></div>
+<div class="kt d">&#9660; -5 W / 周</div>
 </div>
 </div>
 <div class="card">
@@ -893,28 +895,28 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="sh rd">业务大事件</div>
 <ul class="nl">
 <li><div class="nn">1</div><span>1. 车辆保险风险：保险取消投保事件仍在处理中，已成立专项小组跟进</span></li>
-<li><div class="nn">2</div><span>2. 运营：日均分拣量达 367W，创历史新高</span></li>
+<li><div class="nn">2</div><span>2. 运营：日均分拣量达 346W，创历史新高</span></li>
 <li><div class="nn">3</div><span>3. 仓长认证：第 2 场认证考试完成，通过率 91%</span></li>
 <li><div class="nn">4</div><span>4. 加拿大 YT 收购：交割准备工作进行中，HR 政策对齐中</span></li>
 <li><div class="nn">5</div><span>5. H1B 申请已提交，等待 USCIS 受理通知</span></li>
 </ul></div>
 <div class="card">
-<div class="sh b">招聘进度（截止 5/17）</div>
+<div class="sh b">招聘进度（截止 4/20）</div>
 <div class="recruit">
-<div class="rm"><div class="rmn">755</div><div class="rml">累计需求</div></div>
-<div class="rm"><div class="rmn g">652</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn">698</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn g">582</div><div class="rml">累计入职</div></div>
 <div class="rm"><div class="rmn g">86%</div><div class="rml">整体达成率</div></div>
-<div class="rm"><div class="rmn">84%</div><div class="rml">周期内达成率</div></div>
-<div class="rm"><div class="rmn">42</div><div class="rml">5月入职</div></div>
-<div class="rm"><div class="rmn">2</div><div class="rml">AB类岗位入职</div></div>
+<div class="rm"><div class="rmn">83%</div><div class="rml">周期内达成率</div></div>
+<div class="rm"><div class="rmn">140</div><div class="rml">4月入职</div></div>
+<div class="rm"><div class="rmn">8</div><div class="rml">AB类岗位入职</div></div>
 </div>
 <div class="pw">
 <div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">86%</span></div>
 <div class="pb"><div class="pf pg" style="width:86%"></div></div>
 </div>
 <div class="pw" style="padding-top:0;">
-<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">84%</span></div>
-<div class="pb"><div class="pf po" style="width:84%"></div></div>
+<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">83%</span></div>
+<div class="pb"><div class="pf po" style="width:83%"></div></div>
 </div>
 </div>
 <div class="card">
@@ -986,20 +988,20 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div></div>
 <div class="pad">
 <div class="kpi-3">
-<div class="k g">
+<div class="k">
 <div class="kl">峰值下单量</div>
-<div class="kv g">301<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +9 W / 周</div>
+<div class="kv">285<span class="u">&nbsp;W</span></div>
+<div class="kt d">&#9660; -1 W / 周</div>
 </div>
 <div class="k">
 <div class="kl">日均下单量</div>
-<div class="kv">245<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +7 W / 周</div>
+<div class="kv">232<span class="u">&nbsp;W</span></div>
+<div class="kt d">&#9660; -1 W / 周</div>
 </div>
 <div class="k g">
 <div class="kl">日均分拣量</div>
-<div class="kv g">375<span class="u">&nbsp;W</span></div>
-<div class="kt u">&#9650; +8 W / 周</div>
+<div class="kv g">359<span class="u">&nbsp;W</span></div>
+<div class="kt u">&#9650; +13 W / 周</div>
 </div>
 </div>
 <div style="margin-bottom:14px;">
@@ -1020,22 +1022,22 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hc"><div class="hcn">73%</div><div class="hcl">二级部门负责人<br/>满编率（包含不招）</div></div>
 </div></div>
 <div class="card">
-<div class="sh b">招聘进度（截止 5/24）</div>
+<div class="sh b">招聘进度（截止 5/10）</div>
 <div class="recruit">
-<div class="rm"><div class="rmn">778</div><div class="rml">累计需求</div></div>
-<div class="rm"><div class="rmn g">680</div><div class="rml">累计入职</div></div>
-<div class="rm"><div class="rmn g">87%</div><div class="rml">整体达成率</div></div>
-<div class="rm"><div class="rmn">85%</div><div class="rml">周期内达成率</div></div>
-<div class="rm"><div class="rmn">48</div><div class="rml">5月入职</div></div>
-<div class="rm"><div class="rmn">3</div><div class="rml">AB类岗位入职</div></div>
+<div class="rm"><div class="rmn">732</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn g">624</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn g">85%</div><div class="rml">整体达成率</div></div>
+<div class="rm"><div class="rmn">82%</div><div class="rml">周期内达成率</div></div>
+<div class="rm"><div class="rmn">33</div><div class="rml">5月入职</div></div>
+<div class="rm"><div class="rmn">1</div><div class="rml">AB类岗位入职</div></div>
 </div>
 <div class="pw">
-<div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">87%</span></div>
-<div class="pb"><div class="pf pg" style="width:87%"></div></div>
+<div class="pl"><span>累计招聘达成率</span><span style="color:var(--g);font-weight:700;">85%</span></div>
+<div class="pb"><div class="pf pg" style="width:85%"></div></div>
 </div>
 <div class="pw" style="padding-top:0;">
-<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">85%</span></div>
-<div class="pb"><div class="pf po" style="width:85%"></div></div>
+<div class="pl"><span>周期内达成率</span><span style="color:var(--o);font-weight:700;">82%</span></div>
+<div class="pb"><div class="pf po" style="width:82%"></div></div>
 </div>
 </div>
 <div class="card">
@@ -1285,55 +1287,70 @@ document.querySelectorAll('.tab').forEach(function(tab) {
   switchToWeek(week);
 })();
 
-// ─── MINI BAR CHARTS ───
-(function injectBarCharts() {
+// ─── LINE CHARTS ───
+(function injectLineCharts() {
   // Last 4 weeks of data for each metric (W17,W18,W19,W20)
-  var barData = {
+  var lineData = {
     order: {
-      peak:  { d: [268,285,292,301], c: 'var(--n)' },
-      daily: { d: [225,232,238,245], c: 'var(--n)' },
-      sort:  { d: [342,359,367,375], c: 'var(--g)' }
+      peak:  { d: [269,277,286,285], c: '#0C1824' },
+      daily: { d: [212,215,233,232], c: '#0C1824' },
+      sort:  { d: [320,351,346,359], c: '#047857' }
     },
     recruit: {
-      demand: { d: [698,732,755,778], c: 'var(--n)' },
-      hired:  { d: [568,624,652,680], c: 'var(--g)' }
+      demand: { d: [626,656,698,732], c: '#0C1824' },
+      hired:  { d: [533,565,582,624], c: '#047857' }
     }
   };
 
-  function makeBarChart(values, color) {
+  function makeLineChart(values, color) {
     var min = Math.min.apply(null, values);
     var max = Math.max.apply(null, values);
     var range = max - min || 1;
-    var hMin = 4, hMax = 26;
-    var w = 120, h = 48;
+    var w = 130, h = 44;
+    // chart area: x from 18 to 118, y from 6 to 34
+    var lx = 18, rx = 118, ty = 6, by = 34;
     var weeks = ['W17','W18','W19','W20'];
-    var gray = '#D1D3C9', darkGray = '#888780';
-    var bars = '';
-    var cx = [12, 39, 66, 93];
-    for (var i = 0; i < 4; i++) {
-      var bh = hMin + ((values[i] - min) / range) * (hMax - hMin);
-      var by = h - 10 - bh;
-      var isLast = i === 3;
-      var fill = isLast ? color : gray;
-      var valColor = isLast ? color : darkGray;
-      bars += '<rect x="' + (cx[i] - 8) + '" y="' + by + '" width="16" height="' + bh + '" rx="2" fill="' + fill + '"/>';
-      bars += '<text x="' + cx[i] + '" y="' + (by - 4) + '" text-anchor="middle" font-size="9" fill="' + valColor + '" font-weight="' + (isLast ? '600' : '400') + '">' + values[i] + '</text>';
-      bars += '<text x="' + cx[i] + '" y="' + (h - 1) + '" text-anchor="middle" font-size="8" fill="' + (isLast ? color : darkGray) + '">' + weeks[i] + '</text>';
+    var svg = '';
+    // grid lines
+    for (var g = 0; g <= 3; g++) {
+      var gy = ty + (by - ty) * g / 3;
+      svg += '<line x1="' + lx + '" y1="' + gy + '" x2="' + rx + '" y2="' + gy + '" stroke="#E5E7EB" stroke-width="0.5"/>';
     }
-    return '<svg class="sparkline" viewBox="0 0 ' + w + ' ' + h + '" style="width:120px;height:48px;">' + bars + '</svg>';
+    // data points
+    var pts = values.map(function(v, i) {
+      var x = lx + i * (rx - lx) / 3;
+      var y = by - ((v - min) / range) * (by - ty);
+      return {x: x, y: y, v: v, isLast: i === 3};
+    });
+    // polyline
+    var points = pts.map(function(p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' ');
+    svg += '<polyline points="' + points + '" fill="none" stroke="' + color + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+    // dots & labels
+    pts.forEach(function(p) {
+      var r = p.isLast ? 3.5 : 2;
+      svg += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + r + '" fill="' + color + '" stroke="#fff" stroke-width="1"/>';
+      if (p.isLast) {
+        svg += '<text x="' + p.x.toFixed(1) + '" y="' + (p.y - 5) + '" text-anchor="middle" font-size="9" font-weight="700" fill="' + color + '">' + p.v + '</text>';
+      }
+    });
+    // week labels at bottom
+    pts.forEach(function(p) {
+      svg += '<text x="' + p.x.toFixed(1) + '" y="' + (h - 2) + '" text-anchor="middle" font-size="7.5" fill="' + (p.isLast ? color : '#9CA3AF') + '">' + weeks[pts.indexOf(p)] + '</text>';
+    });
+    return '<svg class="sparkline" viewBox="0 0 ' + w + ' ' + h + '" style="width:' + w + 'px;height:' + h + 'px;">' + svg + '</svg>';
   }
 
   var kpiMap = {
-    '峰值下单量': barData.order.peak,
-    '日均下单量': barData.order.daily,
-    '日均分拣量': barData.order.sort
+    '峰值下单量': lineData.order.peak,
+    '日均下单量': lineData.order.daily,
+    '日均分拣量': lineData.order.sort
   };
   var recMap = {
-    '累计需求': barData.recruit.demand,
-    '累计入职': barData.recruit.hired
+    '累计需求': lineData.recruit.demand,
+    '累计入职': lineData.recruit.hired
   };
 
-  // KPI bar charts (under .kv)
+  // KPI line charts (under .kv)
   document.querySelectorAll('.k').forEach(function(card) {
     var label = card.querySelector('.kl');
     var val = card.querySelector('.kv');
@@ -1341,20 +1358,23 @@ document.querySelectorAll('.tab').forEach(function(tab) {
     var key = label.textContent.trim();
     var cfg = kpiMap[key];
     if (!cfg) return;
-    var svg = makeBarChart(cfg.d, cfg.c);
+    var svg = makeLineChart(cfg.d, cfg.c);
     val.insertAdjacentHTML('afterend', svg);
   });
 
-  // Recruitment bar charts (under .rmn)
+  // Recruitment line charts (under .rmn) + mark no-chart cards
   document.querySelectorAll('.rm').forEach(function(card) {
     var label = card.querySelector('.rml');
     var val = card.querySelector('.rmn');
     if (!label || !val) return;
     var key = label.textContent.trim();
-    var d = recMap[key];
-    if (!d) return;
-    var svg = makeBarChart(d.d, d.c);
-    val.insertAdjacentHTML('afterend', svg);
+    var cfg = recMap[key];
+    if (cfg) {
+      var svg = makeLineChart(cfg.d, cfg.c);
+      val.insertAdjacentHTML('afterend', svg);
+    } else {
+      card.classList.add('no-chart');
+    }
   });
 })();
 </script>
