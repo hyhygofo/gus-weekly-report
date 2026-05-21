@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUS 要闻速览 · 全周期看板</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#F2F4F7;--card:#fff;--navy:#0F1923;--text-h:#0F1923;
+  --text-b:#374151;--text-s:#6B7280;--text-x:#9CA3AF;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-bd:#FECACA;
+  --orange:#D97706;--orange-bg:#FFFBEB;--orange-bd:#FDE68A;
+  --green:#059669;--green-bg:#ECFDF5;--green-bd:#A7F3D0;
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;--blue-bd:#BFDBFE;
+  --line:#E5E7EB;--shadow:0 1px 3px rgba(0,0,0,.06);
+}
+body{
+  font-family:'Inter',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--text-b);font-size:13px;
+  -webkit-font-smoothing:antialiased;padding-bottom:48px;
+}
+
+/* ── HEADER ──*/
+.hdr{background:var(--navy);padding:22px 48px 20px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:3px solid var(--red);}
+.hdr-week{font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--red);margin-bottom:5px;}
+.hdr-title{font-size:26px;font-weight:800;color:#fff;
+  letter-spacing:-0.5px;line-height:1.1;}
+.hdr-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.hdr-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;}
+.hdr-badge.critical{background:var(--red);color:#fff;}
+.hdr-badge.neutral{
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.15);}
+
+/* ── WEEK TABS ──*/
+.tabs-bar{
+  background:var(--card);padding:0 48px;
+  display:flex;align-items:stretch;
+  border-bottom:2px solid var(--line);
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.tab{
+  padding:12px 20px;cursor:pointer;font-size:12px;font-weight:600;
+  color:var(--text-s);border-bottom:2.5px solid transparent;
+  margin-bottom:-2px;transition:all .15s;letter-spacing:.3px;
+  white-space:nowrap;
+}
+.tab:hover{color:var(--text-b);background:#F8F9FA;}
+.tab.active{color:var(--navy);border-bottom-color:var(--red);
+  background:#fff;}
+.tab .tab-w{font-size:10px;font-weight:400;color:var(--text-x);
+  display:block;margin-top:1px;}
+.tab.active .tab-w{color:var(--text-s);}
+
+/* ── WRAP ──*/
+.wrap{max-width:1280px;margin:0 auto;padding:20px 48px;
+  display:flex;flex-direction:column;gap:16px;}
+
+/* ── CARD ──*/
+.card{background:var(--card);border-radius:8px;box-shadow:var(--shadow);
+  overflow:hidden;}
+.sec-title{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-s);padding:10px 20px 9px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:8px;}
+.sec-title::before{
+  content:'';width:3px;height:13px;background:var(--navy);
+  border-radius:2px;flex-shrink:0;}
+.sec-title.critical{color:var(--red);}
+.sec-title.critical::before{background:var(--red);}
+
+/* ── KPI ROW ──*/
+.kpi-row{
+  display:grid;gap:0;grid-template-columns:repeat(7,1fr);
+  background:var(--card);border-radius:8px;box-shadow:var(--shadow);
+  overflow:hidden;}
+.kpi-cell{
+  padding:14px 16px 12px;border-right:1px solid var(--line);
+  position:relative;}
+.kpi-cell:last-child{border-right:none;}
+.kpi-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--navy);}
+.kpi-cell.danger::before{background:var(--red);}
+.kpi-cell.good::before{background:var(--green);}
+.kpi-label{
+  font-size:9.5px;font-weight:600;letter-spacing:.8px;
+  text-transform:uppercase;color:var(--text-x);margin-bottom:5px;}
+.kpi-val{font-size:24px;font-weight:800;color:var(--text-h);
+  line-height:1;letter-spacing:-1px;}
+.kpi-val .u{font-size:12px;font-weight:500;color:var(--text-s);}
+.kpi-val.danger{color:var(--red);}
+.kpi-val.good{color:var(--green);}
+.kpi-sub{font-size:10px;color:var(--text-s);margin-top:4px;}
+.kpi-trend{font-size:10px;margin-top:3px;font-weight:600;}
+.kpi-trend.up{color:var(--green);}
+.kpi-trend.down{color:var(--red);}
+
+/* ── RISK ──*/
+.risk-hdr{background:var(--red);padding:12px 24px;
+  display:flex;align-items:center;gap:10px;}
+.risk-hdr-txt{font-size:12.5px;font-weight:700;color:#fff;}
+.risk-body{
+  background:var(--red-bg);border:1px solid var(--red-bd);border-top:none;
+  border-radius:0 0 8px 8px;padding:12px 24px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.risk-item{background:#fff;border:1px solid var(--red-bd);
+  border-radius:6px;padding:10px 14px;}
+.risk-item-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--red);margin-bottom:5px;}
+.risk-item-txt{font-size:12px;color:var(--text-b);line-height:1.6;}
+.risk-item-txt strong{color:var(--red);font-weight:700;}
+
+/* ── GRID ──*/
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+/* ── STATS ──*/
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  padding:12px 20px;}
+.stat-cell{text-align:center;padding:10px 6px;border-radius:6px;
+  border:1px solid var(--line);background:#F8F9FA;}
+.stat-cell.danger{background:var(--red-bg);border-color:var(--red-bd);}
+.stat-n{font-size:20px;font-weight:800;color:var(--text-h);line-height:1;}
+.stat-cell.danger .stat-n{color:var(--red);}
+.stat-l{font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;}
+
+.prog-lbl{display:flex;justify-content:space-between;font-size:10px;
+  color:var(--text-s);margin-bottom:3px;}
+.prog-lbl span:last-child{font-weight:700;color:var(--text-h);}
+.prog-bar{background:#E5E7EB;border-radius:3px;height:5px;overflow:hidden;}
+.prog-fill{height:5px;border-radius:3px;}
+.pg-g{background:var(--green);}.pg-r{background:var(--red);}
+.prog-wrap{padding:0 20px 12px;}
+
+/* ── TABLE ──*/
+table{width:100%;border-collapse:collapse;}
+th{padding:7px 14px;text-align:left;font-size:9.5px;font-weight:700;
+  letter-spacing:.8px;text-transform:uppercase;color:var(--text-x);
+  background:#F8F9FA;border-bottom:1.5px solid var(--line);}
+td{padding:8px 14px;font-size:12px;color:var(--text-b);
+  border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:#FAFBFC;}
+tr.critical td{background:var(--red-bg);}
+tr.critical td:first-child{
+  border-left:3px solid var(--red);padding-left:11px;}
+td strong{color:var(--text-h);font-weight:700;}
+td em{font-style:normal;color:var(--red);font-weight:600;}
+
+/* ── TAGS ──*/
+.tag{display:inline-flex;align-items:center;padding:1px 7px;
+  border-radius:4px;font-size:10px;font-weight:700;white-space:nowrap;}
+.tag-r{background:var(--red-bg);color:var(--red);border:1px solid var(--red-bd);}
+.tag-o{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-bd);}
+.tag-g{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd);}
+.tag-b{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd);}
+.tag-n{background:#F3F4F6;color:#374151;border:1px solid #D1D5DB;}
+.tag-p{background:#F5F0FF;color:#7C3AED;border:1px solid #DDD6FE;}
+
+/* ── HR GRID ──*/
+.hr-grid{display:grid;grid-template-columns:1fr 1fr;}
+.hr-mod{padding:10px 18px;border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);}
+.hr-mod:nth-child(2n){border-right:none;}
+.hr-mod:nth-last-child(-n+2){border-bottom:none;}
+.hr-mod-hd{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--navy);margin-bottom:7px;
+  display:flex;align-items:center;gap:5px;}
+.hr-mod-hd::before{content:'';width:3px;height:12px;
+  background:var(--navy);border-radius:2px;}
+.hr-item{display:flex;gap:7px;font-size:11.5px;color:var(--text-b);
+  padding:3px 0;border-bottom:1px dashed var(--line);
+  line-height:1.5;align-items:flex-start;}
+.hr-item:last-child{border-bottom:none;}
+.hr-item::before{content:'—';color:var(--text-x);font-size:10px;
+  flex-shrink:0;margin-top:1px;}
+
+/* ── NUM LIST ──*/
+.num-list{list-style:none;padding:8px 20px;}
+.num-list li{display:flex;gap:10px;padding:6px 0;
+  border-bottom:1px solid var(--line);font-size:12px;
+  color:var(--text-b);line-height:1.5;align-items:flex-start;}
+.num-list li:last-child{border-bottom:none;}
+.num-list li .n{min-width:20px;height:20px;background:var(--navy);
+  color:#fff;border-radius:4px;display:flex;align-items:center;
+  justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* ── EVENT LIST ──*/
+.event-list{list-style:none;padding:8px 0;}
+.event-list li{display:flex;gap:10px;padding:7px 16px;
+  border-bottom:1px solid var(--line);font-size:12px;
+  color:var(--text-b);line-height:1.5;align-items:flex-start;}
+.event-list li:last-child{border-bottom:none;}
+.ev-n{min-width:20px;height:20px;background:var(--navy);color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.ev-n.red{background:var(--red);}
+
+/* ── FOOTER ──*/
+.footer{max-width:1280px;margin:0 auto;padding:0 48px 16px;
+  display:flex;justify-content:space-between;align-items:center;}
+.footer-l{font-size:11px;color:var(--text-x);}
+.footer-btn{font-size:11px;color:var(--text-s);background:var(--card);
+  padding:4px 12px;border-radius:4px;border:1px solid var(--line);
+  cursor:pointer;font-weight:600;font-family:inherit;}
+
+/* ── PAGE HIDE ──*/
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── GITHUB BANNER ──*/
+.gh-banner{
+  background:linear-gradient(90deg,#24292e,#2f363d);
+  color:rgba(255,255,255,.75);font-size:11px;padding:7px 48px;
+  display:flex;align-items:center;gap:8px;}
+.gh-banner a{color:#79b8ff;text-decoration:none;}
+.gh-banner a:hover{text-decoration:underline;}
+
+@media print{
+  body{background:#fff;padding:0;}
+  .footer-btn,.tabs-bar{display:none;}
+  .page{display:block!important;}
+  .card{box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- GITHUB BANNER -->
+<div class="gh-banner">
+  <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  托管于 GitHub Pages &mdash;
+  <a href="https://pages.github.com" target="_blank">了解如何部署</a>
+  &nbsp;|&nbsp; 将仓库设为 <code>gh-pages</code> 分支即可自动上线
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div>
+    <div class="hdr-week">GUS &middot; Human Resources Weekly Report</div>
+    <div class="hdr-title">要闻速览 &middot; 全周期看板</div>
+    <div class="hdr-sub">2026 W14 &mdash; W21 &nbsp;&middot;&nbsp; GUS HRBP 出品</div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-badge critical">&#9632; 多周视图 · 切片切换</div>
+    <div class="hdr-badge neutral">仅限内部汇报</div>
+  </div>
+</div>
+
+<!-- WEEK TABS -->
+<div class="tabs-bar" id="tabsBar">
+  <div class="tab active" onclick="showWeek('w14')">
+    W14<div class="tab-w">04.06–04.10</div>
+  </div>
+  <div class="tab" onclick="showWeek('w15')">
+    W15<div class="tab-w">04.13–04.19</div>
+  </div>
+  <div class="tab" onclick="showWeek('w16')">
+    W16<div class="tab-w">04.13–04.19</div>
+  </div>
+  <div class="tab" onclick="showWeek('w17')">
+    W17<div class="tab-w">04.20–04.24</div>
+  </div>
+  <div class="tab" onclick="showWeek('w18')">
+    W18<div class="tab-w">04.27–05.01</div>
+  </div>
+  <div class="tab" onclick="showWeek('w19')">
+    W19<div class="tab-w">05.04–05.10</div>
+  </div>
+  <div class="tab active-cur" onclick="showWeek('w20')">
+    W20<div class="tab-w">05.11–05.17</div>
+  </div>
+  <div class="tab" onclick="showWeek('w21')">
+    W21<div class="tab-w">05.18–05.24</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     W14
+══════════════════════════════════════════════ -->
+<div class="page active" id="page-w14">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">233<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">199<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">313<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">换仓</div>
+      <div class="kpi-val">3<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">EWR、MCO、ATL</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">扩仓</div>
+      <div class="kpi-val">2<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">ORD、CLT 二级Hub</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">开仓</div>
+      <div class="kpi-val">1<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">美西 Ground 独立仓</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val good">83%</div>
+      <div class="kpi-sub">入职 460 / 需求 555</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span><strong>融资：</strong>GF 首轮融资 $8000W；Uni 融资/借款 $8000W（日均单量 80W）；极兔帮 Swifx 融资 $3000W，已派人接管部分管理岗（日均单量 38W）</span></li>
+      <li><div class="ev-n">2</div><span><strong>仓库：</strong>美西 CNO 仓附近大仓着火完全烧没，个别前线员工申请居家办公</span></li>
+      <li><div class="ev-n red">!</div><span><strong>廉洁：</strong>豪总指示审计牵头、HR 配合，起草禁止员工收受供应商不当利益声明</span></li>
+      <li><div class="ev-n">3</div><span>EWR、MCO、ATL 3 个 Hub 需旺季前换仓；ORD、CLT 二级 Hub 扩租；奇诺 Ground 将开 20w 尺仓库</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">招聘进度</div>
+    <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--text-h);">555</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">26年累计需求</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--green);">460</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--green);">83%</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">整体达成率</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--text-h);">81%</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">周期内达成率</div>
+      </div>
+    </div>
+    <div style="padding:0 20px 14px;">
+      <div class="prog-lbl"><span>招聘达成率</span><span style="color:var(--green)">83%</span></div>
+      <div class="prog-bar"><div class="prog-fill pg-g" style="width:83%"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">组织人事变动</div>
+    <table>
+      <thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:100px">类型</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">前台</span></td><td>美西区长 David 离职，豪总兼管，常哲任副区长</td><td><span class="tag tag-o">待交接</span></td></tr>
+        <tr><td><span class="tag tag-n">前台</span></td><td>MS 中南片区长殷元正离职</td><td><span class="tag tag-n">离职</span></td></tr>
+        <tr><td><span class="tag tag-n">中台</span></td><td>美西操作组长刘纯调入网规</td><td><span class="tag tag-b">调岗</span></td></tr>
+        <tr><td><span class="tag tag-n">后台</span></td><td>佛州 HR 主管提出离职，拟由 Natalia Padilla 接手</td><td><span class="tag tag-o">待交接</span></td></tr>
+        <tr><td><span class="tag tag-g">新增</span></td><td>新增车辆管理部</td><td><span class="tag tag-g">新增部门</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">中南</span></td><td>李宇洋</td><td>架构泄密，已辞退</td><td><span class="tag tag-r">已辞退</span></td></tr>
+        <tr><td><span class="tag tag-n">CLT</span></td><td>—</td><td>退件腐败举报，审计介入</td><td><span class="tag tag-o">审计中</span></td></tr>
+        <tr><td><span class="tag tag-n">中南</span></td><td>2名员工</td><td>投诉上级领导管理问题</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">美区运力</span></td><td>—</td><td>员工被投诉要求指定服务商并暗示收红包</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-r">CNO</span></td><td>—</td><td>员工因团建不满辱骂 HR，被同事报警关押72小时，返岗后法务建议再做辞退</td><td><span class="tag tag-r">待辞退</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">供应商引入标准已确定</div>
+        <div class="hr-item">存量资质盘点完成</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">调薪初步汇报</div>
+        <div class="hr-item">年终奖待确认 BU 系数</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">福州内训师培训 28 人，满意度 100%</div>
+        <div class="hr-item">组织能力评估下周启动</div>
+      </div>
+      <div class="hr-mod" style="grid-column:span 2;border-bottom:none;">
+        <div class="hr-mod-hd">&#127881; &nbsp;文化建设</div>
+        <div class="hr-item">DSP 支持组茶话会方案设计中</div>
+        <div class="hr-item">HR 派 3 人支援 Ground 大湖区开城</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">其他事项</div>
+    <ul class="num-list">
+      <li><div class="n">1</div><span>HR 派 3 人支援 Ground 大湖区开城</span></li>
+      <li><div class="n">2</div><span>Ariel 收到 Uni 的 HR 主管 offer（底薪 $80k + $7000 签约奖金）</span></li>
+    </ul>
+  </div>
+
+</div>
+</div><!-- end W14 -->
+
+<!-- ══════════════════════════════════════════════
+     W15
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w15">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">233<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">199<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">313<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">换仓</div>
+      <div class="kpi-val">3<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">EWR、MCO、ATL</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">扩仓</div>
+      <div class="kpi-val">2<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">ORD、CLT 二级Hub</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">开仓</div>
+      <div class="kpi-val">1<span class="u">&nbsp;个</span></div>
+      <div class="kpi-sub">美西 Ground 独立仓</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val good">83%</div>
+      <div class="kpi-sub">入职 460 / 需求 555</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span><strong>融资：</strong>GF 首轮融资 $8000W；Uni 融资/借款 $8000W（日均单量 80W）；极兔帮 Swifx 融资 $3000W，已派人接管部分管理岗（日均单量 38W）</span></li>
+      <li><div class="ev-n">2</div><span><strong>仓库：</strong>美西 CNO 仓附近大仓着火完全烧没，个别前线员工申请居家办公</span></li>
+      <li><div class="ev-n red">!</div><span><strong>廉洁：</strong>豪总指示审计牵头、HR 配合，起草禁止员工收受供应商不当利益声明</span></li>
+      <li><div class="ev-n">3</div><span>EWR、MCO、ATL 3 个 Hub 需旺季前换仓；ORD、CLT 二级 Hub 扩租；奇诺 Ground 将开 20w 尺仓库</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">招聘进度</div>
+    <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--text-h);">555</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">26年累计需求</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--green);">460</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--green);">83%</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">整体达成率</div>
+      </div>
+      <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+        <div style="font-size:20px;font-weight:800;color:var(--text-h);">12</div>
+        <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">4月入职</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">组织人事变动</div>
+    <table>
+      <thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:100px">类型</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">前台</span></td><td>美西区长 David 离职，豪总兼管，常哲任副区长</td><td><span class="tag tag-o">待交接</span></td></tr>
+        <tr><td><span class="tag tag-n">中台</span></td><td>美西操作组长刘纯调入网规</td><td><span class="tag tag-b">调岗</span></td></tr>
+        <tr><td><span class="tag tag-n">后台</span></td><td>佛州 HR 主管提出离职，拟由 Natalia Padilla 接手</td><td><span class="tag tag-o">待交接</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">中南</span></td><td>李宇洋</td><td>架构泄密，已辞退</td><td><span class="tag tag-r">已辞退</span></td></tr>
+        <tr><td><span class="tag tag-n">CLT</span></td><td>—</td><td>退件腐败举报，审计介入</td><td><span class="tag tag-o">审计中</span></td></tr>
+        <tr><td><span class="tag tag-r">CNO</span></td><td>—</td><td>员工因团建不满辱骂 HR，被同事报警关押72小时，返岗后法务建议再做辞退</td><td><span class="tag tag-r">待辞退</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">供应商引入标准已确定</div>
+        <div class="hr-item">存量资质盘点完成</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">调薪初步汇报</div>
+        <div class="hr-item">年终奖待确认 BU 系数</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">福州内训师培训 28 人，满意度 100%</div>
+        <div class="hr-item">组织能力评估下周启动</div>
+      </div>
+      <div class="hr-mod" style="grid-column:span 2;border-bottom:none;">
+        <div class="hr-mod-hd">&#127881; &nbsp;文化建设</div>
+        <div class="hr-item">DSP 支持组茶话会方案设计中</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W15 -->
+
+<!-- ══════════════════════════════════════════════
+     W16
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w16">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">241<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">203<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +4 W</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">315<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">招聘需求</div>
+      <div class="kpi-val">577</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">累计入职</div>
+      <div class="kpi-val good">488</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">达成率</div>
+      <div class="kpi-val good">85%</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">4月入职</div>
+      <div class="kpi-val">40<span class="u">&nbsp;人</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span>第三方快递柜合作：已谈 2 家供应商，1 家在用，覆盖 1% 订单</span></li>
+      <li><div class="ev-n">2</div><span>城区派送：探索步行+小三轮，曼哈顿试点</span></li>
+      <li><div class="ev-n">3</div><span>快递员门禁权限：谈判门禁 APP 权限，曼哈顿试点</span></li>
+    </ul>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="sec-title">组织人事变动</div>
+      <table>
+        <thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:100px">类型</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag-b">前台</span></td><td>常哲正式接替美西区长（David 离职，豪总原兼管）</td><td><span class="tag tag-b">晋升接替</span></td></tr>
+          <tr><td><span class="tag tag-n">后台</span></td><td>佛州 HR 主管林威离职，Natalia Padilla 接替</td><td><span class="tag tag-n">离职 / 交接</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="sec-title">招聘进度（截至 4/13）</div>
+      <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">577</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计需求</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">488</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">85%</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">达成率</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">40</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">4月入职</div>
+        </div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>招聘达成率</span><span style="color:var(--green)">85%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:85%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系 · 重要事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr class="critical"><td><span class="tag tag-r">中南</span></td><td>宋昊阳</td><td>中南 SAV 站性骚扰事件</td><td><span class="tag tag-r">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">美西 CNO</span></td><td>多名员工</td><td>多起员工投诉，扬言劳动仲裁</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">美西 CNO</span></td><td>—</td><td>员工故意拍摄公司违规场面</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">仓库租赁组</span></td><td>赵燕</td><td>被辞退后对 HR 肢体碰撞</td><td><span class="tag tag-r">已处理</span></td></tr>
+        <tr><td><span class="tag tag-n">品牌市场部</span></td><td>—</td><td>岗位名称调整引发集体不满</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">客服部</span></td><td>—</td><td>员工打卡后私自离岗被处理</td><td><span class="tag tag-g">已处理</span></td></tr>
+        <tr><td><span class="tag tag-n">福州</span></td><td>客服</td><td>溜岗事件</td><td><span class="tag tag-g">已处理</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">劳务工协议签署率持续推进</div>
+        <div class="hr-item">供应商引入标准已确定</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">调薪初步汇报</div>
+        <div class="hr-item">年终奖待确认 BU 系数</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">福州内训师培训 28 人，满意度 100%</div>
+        <div class="hr-item">组织能力评估启动</div>
+      </div>
+      <div class="hr-mod" style="grid-column:span 2;border-bottom:none;">
+        <div class="hr-mod-hd">&#9878; &nbsp;法律合规</div>
+        <div class="hr-item">H1B 申请名单下周提交</div>
+        <div class="hr-item">集体诉讼涉及 4 项改进点（考勤自动扣休息时间、手机补贴、加州强制休息、非工作时间回消息需付加班费）</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W16 -->
+
+<!-- ══════════════════════════════════════════════
+     W17
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w17">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">269<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +28 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">212<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +9 W</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">320<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +5 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">编制</div>
+      <div class="kpi-val">1879</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">在职</div>
+      <div class="kpi-val">1453</div>
+    </div>
+    <div class="kpi-cell danger">
+      <div class="kpi-label">整体满编率</div>
+      <div class="kpi-val danger">77%</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val good">85%</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span>加拿大 5 月底拓城，多伦多+温哥华各 15w 尺仓 + 7 个站点</span></li>
+      <li><div class="ev-n">2</div><span>丹佛分拣机试点上线</span></li>
+      <li><div class="ev-n">3</div><span>干支线卡车新增 4 条试运行线路</span></li>
+    </ul>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="sec-title">编制情况</div>
+      <div class="stat3">
+        <div class="stat-cell"><div class="stat-n">1879</div><div class="stat-l">编制</div></div>
+        <div class="stat-cell"><div class="stat-n">1453</div><div class="stat-l">在职</div></div>
+        <div class="stat-cell"><div class="stat-n">77%</div><div class="stat-l">满编率</div></div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>整体满编率</span><span style="color:var(--text-h)">77%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:77%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-title">招聘进度（截至 4/20）</div>
+      <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">626</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计需求</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">533</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">85%</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">达成率</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">81</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">4月入职</div>
+        </div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>招聘达成率</span><span style="color:var(--green)">85%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:85%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">中南</span></td><td>揽收主管</td><td>被投诉（人员不足积压）</td><td><span class="tag tag-o">处理中</span></td></tr>
+        <tr><td><span class="tag tag-n">操作管理部</span></td><td>张家义</td><td>加班时长过高拒绝换年薪</td><td><span class="tag tag-o">协商中</span></td></tr>
+        <tr><td><span class="tag tag-n">BD 部门</span></td><td>—</td><td>发错薪酬引发员工不满</td><td><span class="tag tag-g">已处理</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项亮点</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">劳务工个人协议：iPad + 签字小程序，3 天开发完成，下周全美上线</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">仓长能力认证方案定稿，本周六首期宣导</div>
+        <div class="hr-item">年终奖分配规则本周内汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">调薪初步汇报</div>
+        <div class="hr-item">年终奖分配规则本周内汇报</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W17 -->
+
+<!-- ══════════════════════════════════════════════
+     W18
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w18">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">277<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +8 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">215<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +3 W</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">351<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +31 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">编制</div>
+      <div class="kpi-val">1912</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">在职</div>
+      <div class="kpi-val">1442</div>
+    </div>
+    <div class="kpi-cell danger">
+      <div class="kpi-label">整体满编率</div>
+      <div class="kpi-val danger">75%</div>
+      <div class="kpi-trend down">&#9660; -2%</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val good">85%</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span>站点标准化项目启动，丹佛+凤凰城上线分拣机</span></li>
+      <li><div class="ev-n">2</div><span>L1 员工工作地点确认（签证合规）</span></li>
+      <li><div class="ev-n">3</div><span>L1 员工车辆配置问题：中南 3 名员工申请 Tesla，待豪总明确统一标准</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">加拿大组织架构新增</div>
+    <div style="padding:10px 20px;font-size:12px;color:var(--text-b);line-height:1.6;">
+      YOW01、YUL01、YQB01、YYC01、YEG01 等站点，HR 新增加拿大 HR 组
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="sec-title">编制情况</div>
+      <div class="stat3">
+        <div class="stat-cell"><div class="stat-n">1912</div><div class="stat-l">编制</div></div>
+        <div class="stat-cell"><div class="stat-n">1442</div><div class="stat-l">在职</div></div>
+        <div class="stat-cell danger"><div class="stat-n">75%</div><div class="stat-l">满编率</div></div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>整体满编率</span><span style="color:var(--red)">75%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-r" style="width:75%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-title">招聘进度</div>
+      <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">626</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计需求</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">533</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">85%</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">达成率</div>
+        </div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>招聘达成率</span><span style="color:var(--green)">85%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:85%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系 · 重要事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr class="critical">
+          <td><span class="tag tag-r">大湖 CVG</span></td>
+          <td>李爱女</td>
+          <td>绩效违纪后抵触，自行倒地并散布<em>"被主管推倒"</em> 虚假言论，911 介入，医药费可能超 <strong>$2000+</strong></td>
+          <td><span class="tag tag-o">处理中</span></td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-n">CLT.H / CNO</span></td>
+          <td>—</td>
+          <td>员工存在感情关系处理不当问题</td>
+          <td><span class="tag tag-o">处理中</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项亮点</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">劳务工协议签署率：截至 4/29 达 <strong>89%</strong>（删除指纹后），目标动态 100%</div>
+        <div class="hr-item">COI 保险合规：美西 100%，目标 5/15 前全美 100%</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">仓长认证：首次培训认证参训 33 人，参训率 <strong>100%</strong>，通过率 <strong>88%</strong></div>
+        <div class="hr-item">年终奖已完成发放</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">年终奖已完成发放</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W18 -->
+
+<!-- ══════════════════════════════════════════════
+     W19
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w19">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">286<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +9 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">233<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +18 W</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">346<span class="u">&nbsp;W</span></div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">编制</div>
+      <div class="kpi-val">1958</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">在职</div>
+      <div class="kpi-val">1430</div>
+    </div>
+    <div class="kpi-cell danger">
+      <div class="kpi-label">整体满编率</div>
+      <div class="kpi-val danger">73%</div>
+      <div class="kpi-trend down">&#9660; -2%</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val good">85%</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">业务大事件</div>
+    <ul class="event-list">
+      <li><div class="ev-n">1</div><span>中南 ATL 新仓下周可入，约 35w 尺，预计需 500 名劳务工</span></li>
+      <li><div class="ev-n">2</div><span>新泽西新仓需人工分拣</span></li>
+      <li><div class="ev-n">3</div><span><strong>GF 收购加拿大 YT</strong>，交割日 6 月 1 日</span></li>
+    </ul>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="sec-title">编制情况</div>
+      <div class="stat3">
+        <div class="stat-cell"><div class="stat-n">1958</div><div class="stat-l">编制</div></div>
+        <div class="stat-cell"><div class="stat-n">1430</div><div class="stat-l">在职</div></div>
+        <div class="stat-cell danger"><div class="stat-n">73%</div><div class="stat-l">满编率</div></div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>整体满编率</span><span style="color:var(--red)">73%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-r" style="width:73%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-title">HR 专项 · 劳务</div>
+      <div style="padding:12px 20px;">
+        <div class="prog-lbl"><span>劳务工协议签署率</span><span style="color:var(--green)">98%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:98%"></div></div>
+        <div style="margin-top:10px;font-size:11.5px;color:var(--text-s);">截至 5/3，进入常态化管控</div>
+        <div style="margin-top:8px;font-size:11.5px;color:var(--text-b);"><strong>COI 合规</strong>：全美 91%，美西/中南/东北均达 100%</div>
+        <div style="margin-top:8px;font-size:11.5px;color:var(--text-b);"><strong>供应商门户</strong>：美西全面上线，派遣操作率 100%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title critical">员工关系 · 重要事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr class="critical">
+          <td><span class="tag tag-r">大湖</span></td>
+          <td>李爱女</td>
+          <td>确认存在<em>引导 DSP 司机提供不实证词</em>，已协商解除劳动关系，公司给予 <strong>$5000</strong> 遣散费</td>
+          <td><span class="tag tag-g">已处理</span></td>
+        </tr>
+        <tr class="critical">
+          <td><span class="tag tag-r">中南</span></td>
+          <td>林宝佳</td>
+          <td>被举报收取揽收司机费用、泄露公司内部信息、恶意传播不实言论</td>
+          <td><span class="tag tag-r">已辞退</span></td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-n">中南</span></td>
+          <td>招聘团队</td>
+          <td>劳务工管理工作量过大导致压力过高，部分人员想转岗，HR 已重新划分权责</td>
+          <td><span class="tag tag-b">已调整</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项亮点</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">劳务工协议签署率：截至 5/3 达 <strong>98%</strong>，进入常态化管控</div>
+        <div class="hr-item">供应商门户：美西全面上线，派遣操作率 100%</div>
+        <div class="hr-item">仓长认证首期通过率 <strong>90%</strong>，第 2 场定于 5 月 15 日</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;信息化</div>
+        <div class="hr-item">考勤签字报表和居家办公已上线</div>
+        <div class="hr-item">供应商全生命周期管理规划中</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬</div>
+        <div class="hr-item">年终奖已完成发放</div>
+        <div class="hr-item">设备激励 / 海外福利标准待汇报</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">仓长认证首期通过率 <strong>90%</strong></div>
+        <div class="hr-item">第 2 场认证定于 5 月 15 日</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W19 -->
+
+<!-- ══════════════════════════════════════════════
+     W20 ★ 主推
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w20">
+<div class="wrap">
+
+  <!-- KPI -->
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">285<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; +1 W</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">232<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend down">&#9660; -1 W</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val good">359<span class="u">&nbsp;W</span></div>
+      <div class="kpi-trend up">&#9650; 持续增长</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">编制人数</div>
+      <div class="kpi-val">1989</div>
+      <div class="kpi-sub">在职 1432</div>
+    </div>
+    <div class="kpi-cell danger">
+      <div class="kpi-label">整体满编率</div>
+      <div class="kpi-val danger">72%</div>
+      <div class="kpi-trend down">&#9660; -1%</div>
+    </div>
+    <div class="kpi-cell good">
+      <div class="kpi-label">招聘达成率</div>
+      <div class="kpi-val good">85%</div>
+      <div class="kpi-sub">入职 624 / 需求 732</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">5月入职</div>
+      <div class="kpi-val">33<span class="u">&nbsp;人</span></div>
+    </div>
+  </div>
+
+  <!-- RISK -->
+  <div class="card" style="overflow:visible;">
+    <div class="risk-hdr">
+      <span class="risk-hdr-txt">业务大事件 &middot; 重大风险：全美车辆保险被取消投保</span>
+    </div>
+    <div class="risk-body">
+      <div class="risk-item">
+        <div class="risk-item-lbl">风险一 &middot; DOT 资质</div>
+        <div class="risk-item-txt">保险失效后，所有车辆将 <strong>无法合法上路</strong>，面临 <strong>DOT 合规资质失效</strong> 风险</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-item-lbl">风险二 &middot; 保险市场</div>
+        <div class="risk-item-txt">目前仅 <strong>1 家</strong> 保险公司报价，年保费约 <strong>$570 万</strong>，较当前上涨 <strong>$220 万</strong></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-item-lbl">风险三 &middot; 仓库租赁</div>
+        <div class="risk-item-txt"><strong>4 个大型仓库</strong> 项目可能因保险问题 <strong>无法继续签约</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 编制+招聘 -->
+  <div class="g2">
+    <div class="card">
+      <div class="sec-title">编制情况</div>
+      <div class="stat3">
+        <div class="stat-cell"><div class="stat-n">1989</div><div class="stat-l">编制</div></div>
+        <div class="stat-cell"><div class="stat-n">1432</div><div class="stat-l">在职</div></div>
+        <div class="stat-cell danger"><div class="stat-n">72%</div><div class="stat-l">满编率</div></div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>整体满编率</span><span style="color:var(--red)">72%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-r" style="width:72%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sec-title">招聘进度（截至 5/10）</div>
+      <div style="padding:14px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;">
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">732</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计需求</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">624</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">累计入职</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--green);">85%</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">达成率</div>
+        </div>
+        <div style="text-align:center;padding:10px;border-radius:6px;border:1px solid var(--line);background:#F8F9FA;">
+          <div style="font-size:20px;font-weight:800;color:var(--text-h);">33</div>
+          <div style="font-size:10px;color:var(--text-s);margin-top:3px;font-weight:600;">5月入职</div>
+        </div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-lbl"><span>累计招聘达成率</span><span style="color:var(--green)">85%</span></div>
+        <div class="prog-bar"><div class="prog-fill pg-g" style="width:85%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 组织人事 -->
+  <div class="card">
+    <div class="sec-title">组织人事变动</div>
+    <table>
+      <thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:100px">类型</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-n">前台</span></td><td>常哲正式接替美西区长（David 离职，豪总原兼管）</td><td><span class="tag tag-b">晋升接替</span></td></tr>
+        <tr><td><span class="tag tag-n">后台</span></td><td>佛州 HR 主管林威离职，Natalia Padilla 接替</td><td><span class="tag tag-n">离职 / 交接</span></td></tr>
+        <tr><td><span class="tag tag-g">新增</span></td><td>GF 收购加拿大 YT，交割日 6 月 1 日；加拿大 HR 组正式成立</td><td><span class="tag tag-g">组织扩张</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 员工关系 -->
+  <div class="card">
+    <div class="sec-title critical">员工关系 &middot; 重点事件</div>
+    <table>
+      <thead><tr><th style="width:80px">区域</th><th>当事人</th><th>事件描述</th><th style="width:80px">状态</th></tr></thead>
+      <tbody>
+        <tr class="critical">
+          <td><span class="tag tag-r">美西</span></td>
+          <td><strong>Kelvin Siu</strong></td>
+          <td>美西 SFV 站点员工因<em>过度疲劳昏倒</em>（近两周加班 <strong>60+ 小时</strong>），出现<em>面瘫症状</em>，已安排慰问</td>
+          <td><span class="tag tag-o">慰问中</span></td>
+        </tr>
+        <tr class="critical">
+          <td><span class="tag tag-r">运力部</span></td>
+          <td><strong>调度组（集体）</strong></td>
+          <td>运力管理部调度组<em>集体离职倾向</em>，因对调度主管王阳不满</td>
+          <td><span class="tag tag-r">关注中</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HR专项 -->
+  <div class="card">
+    <div class="sec-title">HR 专项</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item">劳务供应商考核方案：本周与区长沟通，下周二汇报</div>
+        <div class="hr-item">COI 合规：全美 <strong>91%</strong>（美西 100%、中南 100%、东北 100%）</div>
+        <div class="hr-item">劳务工协议签署率：进入常态化管控</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;人力系统</div>
+        <div class="hr-item">供应商门户：美西全面上线，派遣操作率 100%</div>
+        <div class="hr-item">iPad + 签字小程序：劳务工个人协议全美上线</div>
+        <div class="hr-item">H1B 申请名单下周提交</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬绩效福利</div>
+        <div class="hr-item">年终奖已完成发放（W18）</div>
+        <div class="hr-item">加拿大薪资标准已汇报，先运行 3 个月再校准</div>
+        <div class="hr-item">BD 部门误发薪酬问题已处理</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展</div>
+        <div class="hr-item">仓长认证首期通过率 <strong>94%</strong></div>
+        <div class="hr-item">第 2 次认证已转为线上平台考试</div>
+        <div class="hr-item">仓长认证第 2 场定于 5 月 15 日</div>
+      </div>
+      <div class="hr-mod" style="grid-column:span 2;border-bottom:none;">
+        <div class="hr-mod-hd">&#127881; &nbsp;文化氛围</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+          <div class="hr-item" style="grid-column:span 2;">支援人员传记：访谈中，已宣发 2 篇</div>
+          <div class="hr-item">入职欢迎：内容全部定稿，审核后推送</div>
+          <div class="hr-item">司龄项目：海报及选品沟通中</div>
+          <div class="hr-item">入职前提醒项目：已定稿，待测试上线</div>
+          <div class="hr-item">福州职场本周 4 场茶话会</div>
+          <div class="hr-item">福州年度团建已报名 220 人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 其他事项 -->
+  <div class="card">
+    <div class="sec-title">其他事项</div>
+    <ul class="num-list">
+      <li><div class="n">1</div><span>HR 派 3 人支援 Ground 大湖区开城</span></li>
+      <li><div class="n">2</div><span>Ariel 收到 Uni 的 HR 主管 offer（底薪 $80k + $7000 签约奖金）</span></li>
+    </ul>
+  </div>
+
+</div>
+</div><!-- end W20 -->
+
+<!-- ══════════════════════════════════════════════
+     W21
+══════════════════════════════════════════════ -->
+<div class="page" id="page-w21">
+<div class="wrap">
+
+  <div class="kpi-row">
+    <div class="kpi-cell">
+      <div class="kpi-label">峰值下单量</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均下单量</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">日均分拣量</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">编制</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">在职</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">整体满编率</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">招聘达成</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-sub">数据待填</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">员工关系</div>
+    <div style="padding:16px 20px;font-size:12px;color:var(--text-s);">
+      前台、中台数据待填写
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sec-title">HR 专项</div>
+    <div class="hr-grid">
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128203; &nbsp;劳务管理</div>
+        <div class="hr-item" style="color:var(--text-s);">框架已列出，待填写本周数据</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128187; &nbsp;人力系统</div>
+        <div class="hr-item" style="color:var(--text-s);">框架已列出，待填写本周数据</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#128176; &nbsp;薪酬绩效福利</div>
+        <div class="hr-item" style="color:var(--text-s);">框架已列出，待填写本周数据</div>
+      </div>
+      <div class="hr-mod">
+        <div class="hr-mod-hd">&#127891; &nbsp;人才发展 / 培训</div>
+        <div class="hr-item" style="color:var(--text-s);">框架已列出，待填写本周数据</div>
+      </div>
+      <div class="hr-mod" style="grid-column:span 2;border-bottom:none;">
+        <div class="hr-mod-hd">&#127881; &nbsp;文化氛围</div>
+        <div class="hr-item">支援人员传记：访谈中，已宣发 2 篇</div>
+        <div class="hr-item">入职欢迎：内容全部定稿，审核后推送</div>
+        <div class="hr-item">司龄项目：海报及选品沟通中</div>
+        <div class="hr-item">入职前提醒项目：已定稿，待测试上线</div>
+        <div class="hr-item">福州职场本周 4 场茶话会</div>
+        <div class="hr-item">福州年度团建已报名 220 人</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- end W21 -->
+
+</div><!-- end wrap -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-l">GUS HRBP &nbsp;&middot;&nbsp; 内部汇报材料，请勿外传 &nbsp;&middot;&nbsp; W14–W21（2026.04–05）</div>
+  <button class="footer-btn" onclick="window.print()">&#128438; 导出 PDF</button>
+</div>
+
+<script>
+// ── Week switcher ──────────────────────────────
+function showWeek(id) {
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // show target
+  document.getElementById('page-' + id).classList.add('active');
+  // update tabs
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  // scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── URL hash sync ───────────────────────────────
+function syncHash() {
+  var h = location.hash.replace('#','');
+  if (h) {
+    var el = document.querySelector('[onclick="showWeek(\'' + h + '\')"]');
+    if (el) { el.click(); }
+  }
+}
+window.addEventListener('hashchange', syncHash);
+window.addEventListener('DOMContentLoaded', syncHash);
+</script>
+
+</body>
+</html>
