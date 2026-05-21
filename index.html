@@ -285,7 +285,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 @media print{
   @page{size:A4;margin:0;}
   html,body{background:#E2E4E9;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .btn{display:none;}
+  .btn,.btn-export{display:none;}
   .card{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .kpi-3{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .page{max-width:100%;}
@@ -335,7 +335,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 @media print{
   @page{size:A4;margin:0;}
   html,body{background:#E2E4E9;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .btn{display:none;}
+  .btn,.btn-export{display:none;}
   .card{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .kpi-3{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .page{max-width:100%;}
@@ -350,7 +350,12 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 .week-panel.empty-state .kv {
   color: var(--tx) !important;
 }
+.sparkline{display:block;margin:2px auto 0;width:80px;height:20px;opacity:.5;}
+.k:hover .sparkline,.rm:hover .sparkline{opacity:.85;}
+.btn-export{font-size:10px;color:#fff;background:var(--n);padding:3px 11px;border-radius:4px;border:none;cursor:pointer;font-weight:600;font-family:inherit;margin-left:6px;transition:all .15s;}
+.btn-export:hover{background:var(--r2);}
 </style>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -1188,7 +1193,10 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <!-- FOOTER -->
 <div class="ft">
   <div class="fl">GUS HRBP &nbsp;&middot;&nbsp; 内部汇报材料，请勿外传 &nbsp;&middot;&nbsp; 全周期看板（W14–W21）</div>
-  <button class="btn" onclick="printCurrentWeek()">&#128438; 导出 PDF / 打印</button>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <button class="btn" onclick="printCurrentWeek()">&#128438; 导出 PDF / 打印</button>
+    <button class="btn-export" onclick="exportImage()">&#128247; 导出图片</button>
+  </div>
 </div>
 
 <div style="height:12px;background:var(--bg);"></div>
@@ -1237,6 +1245,33 @@ function printCurrentWeek() {
   window.print();
 }
 
+// ─── EXPORT IMAGE ───
+function exportImage() {
+  const week = getActiveWeek();
+  const panel = document.getElementById('week-' + week);
+  if (!panel) return;
+  panel.style.display = 'block';
+  const content = panel.querySelector('.page');
+  const target = content || panel;
+  const btn = document.querySelector('.btn-export');
+  if (btn) btn.textContent = '⏳ 生成中...';
+  html2canvas(target, {
+    backgroundColor: '#ffffff',
+    scale: 2,
+    useCORS: true,
+    logging: false
+  }).then(function(canvas) {
+    const link = document.createElement('a');
+    link.download = 'GUS_要闻速览_' + week + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    if (btn) btn.textContent = '📷 导出图片';
+  }).catch(function() {
+    if (btn) btn.textContent = '📷 导出图片';
+    alert('导出失败，请重试');
+  });
+}
+
 // Tab click handlers
 document.querySelectorAll('.tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
@@ -1248,6 +1283,79 @@ document.querySelectorAll('.tab').forEach(function(tab) {
 (function init() {
   const week = getActiveWeek();
   switchToWeek(week);
+})();
+
+// ─── MINI BAR CHARTS ───
+(function injectBarCharts() {
+  // Last 4 weeks of data for each metric (W17,W18,W19,W20)
+  var barData = {
+    order: {
+      peak:  { d: [268,285,292,301], c: 'var(--n)' },
+      daily: { d: [225,232,238,245], c: 'var(--n)' },
+      sort:  { d: [342,359,367,375], c: 'var(--g)' }
+    },
+    recruit: {
+      demand: { d: [698,732,755,778], c: 'var(--n)' },
+      hired:  { d: [568,624,652,680], c: 'var(--g)' }
+    }
+  };
+
+  function makeBarChart(values, color) {
+    var min = Math.min.apply(null, values);
+    var max = Math.max.apply(null, values);
+    var range = max - min || 1;
+    var hMin = 4, hMax = 26;
+    var w = 120, h = 48;
+    var weeks = ['W17','W18','W19','W20'];
+    var gray = '#D1D3C9', darkGray = '#888780';
+    var bars = '';
+    var cx = [12, 39, 66, 93];
+    for (var i = 0; i < 4; i++) {
+      var bh = hMin + ((values[i] - min) / range) * (hMax - hMin);
+      var by = h - 10 - bh;
+      var isLast = i === 3;
+      var fill = isLast ? color : gray;
+      var valColor = isLast ? color : darkGray;
+      bars += '<rect x="' + (cx[i] - 8) + '" y="' + by + '" width="16" height="' + bh + '" rx="2" fill="' + fill + '"/>';
+      bars += '<text x="' + cx[i] + '" y="' + (by - 4) + '" text-anchor="middle" font-size="9" fill="' + valColor + '" font-weight="' + (isLast ? '600' : '400') + '">' + values[i] + '</text>';
+      bars += '<text x="' + cx[i] + '" y="' + (h - 1) + '" text-anchor="middle" font-size="8" fill="' + (isLast ? color : darkGray) + '">' + weeks[i] + '</text>';
+    }
+    return '<svg class="sparkline" viewBox="0 0 ' + w + ' ' + h + '" style="width:120px;height:48px;">' + bars + '</svg>';
+  }
+
+  var kpiMap = {
+    '峰值下单量': barData.order.peak,
+    '日均下单量': barData.order.daily,
+    '日均分拣量': barData.order.sort
+  };
+  var recMap = {
+    '累计需求': barData.recruit.demand,
+    '累计入职': barData.recruit.hired
+  };
+
+  // KPI bar charts (under .kv)
+  document.querySelectorAll('.k').forEach(function(card) {
+    var label = card.querySelector('.kl');
+    var val = card.querySelector('.kv');
+    if (!label || !val) return;
+    var key = label.textContent.trim();
+    var cfg = kpiMap[key];
+    if (!cfg) return;
+    var svg = makeBarChart(cfg.d, cfg.c);
+    val.insertAdjacentHTML('afterend', svg);
+  });
+
+  // Recruitment bar charts (under .rmn)
+  document.querySelectorAll('.rm').forEach(function(card) {
+    var label = card.querySelector('.rml');
+    var val = card.querySelector('.rmn');
+    if (!label || !val) return;
+    var key = label.textContent.trim();
+    var d = recMap[key];
+    if (!d) return;
+    var svg = makeBarChart(d.d, d.c);
+    val.insertAdjacentHTML('afterend', svg);
+  });
 })();
 </script>
 
