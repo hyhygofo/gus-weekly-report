@@ -266,6 +266,19 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 }
 .hm-row:last-child { border-bottom: none; }
 .hm-row.hm-hidden { display: none; }
+
+/* Pair rows in 2-col grid */
+.hm-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--l);
+}
+.hm-pair .hm-row {
+  border-bottom: none;
+}
+.hm-pair .hm-row:first-child {
+  border-right: 1px solid var(--l);
+}
 .hm-row .hm-t {
   font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
   color: var(--n); margin-bottom: 3px; display: flex; align-items: center; gap: 4px;
@@ -505,6 +518,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -517,6 +532,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li></li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -528,6 +546,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hm-body"><ul>
 <li></li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化建设">
 <div class="hm-t">文化建设</div>
@@ -639,6 +658,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -651,6 +672,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>考勤合规，每周开会，美西拉了和仓组长的群，</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -662,6 +686,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hm-body"><ul>
 <li></li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -783,6 +808,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -799,6 +826,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>4️⃣ 正式工打卡签字报表：问题梳理并形成解决方案，待进一步跟进；完成后能提高日常工作效率。</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -814,6 +844,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>2️⃣ 仓长能力认证：仓长认证方案已定稿，区长逐一确认无异议，本周六项目宣导及首期认证。</li>
 <li>3️⃣ 组织能力评估：目前中后台评估已进行收尾，区域 BP 已做二次培训，预计月底前完成。</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -947,6 +978,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -962,6 +995,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>3️⃣ 正式工排班及考勤晾晒：协同 SSC 确认模板及推送内容和对象，预计本周推送；日超 8</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -975,6 +1011,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>2️⃣ 仓长能力认证：仓长已启动首次培训认证，参训合计 33 人，参训率 100%，参考率 94%，截止 4 月 3 日通过率 88%，持续组织补考认证。</li>
 <li>3️⃣ 站长能力认证：已与站点管理部沟通课程框架，并完成区长、片区长需求调研，计划下</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -1095,6 +1132,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -1115,6 +1154,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -1133,6 +1175,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>④区域支援：推进加拿大支援事项。</li>
 <li>⑤福州职场面试官培训：截止目前已报名25人，5月29日正式启动。</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -1251,6 +1294,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -1266,6 +1311,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>3️⃣ 正式工考勤管理：正式工考勤打卡率较 4/22 上升 23%；完成佛州/Ground/美西业务考勤培训（员工出勤/请假/加班总工）</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -1283,6 +1331,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>3️⃣ 新员工关怀方案：根据前 3 个月离职情况，输出新员工关怀方案，根据方案意见修改。</li>
 <li>4️⃣</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -1403,6 +1452,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -1423,6 +1474,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -1441,6 +1495,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>④区域支援：推进加拿大支援事项。</li>
 <li>⑤福州职场面试官培训：截止目前已报名25人，5月29日正式启动。</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -1554,6 +1609,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </span></div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
 <div class="hm-body"><ul>
@@ -1573,6 +1630,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>5️⃣加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
 </ul></div>
 </div>
+</div>
+
+<div class="hm-pair">
 <div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
 <div class="hm-body"><ul>
@@ -1590,6 +1650,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>4、双线管理矩阵：梳理片区长、运营支持负责人岗位职责，明确业务事项权责边界。</li>
 <li>5、福州职场面试官培训：参训31人，现场理论+实操+通关，整体培训满意度调研+训后考试进行中，后期根据结果进行下一步深化</li>
 </ul></div>
+</div>
 </div>
 <div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
@@ -1739,12 +1800,19 @@ function exportImage() {
     backgroundColor: '#ffffff',
     scale: 2,
     useCORS: true,
+    allowTaint: true,
     logging: false
   }).then(function(canvas) {
-    var link = document.createElement('a');
-    link.download = 'GUS_要闻速览_' + week + '.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
+    // Use toBlob to avoid "The operation is insecure" on file:// protocol
+    canvas.toBlob(function(blob) {
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.download = 'GUS_要闻速览_' + week + '.png';
+      link.href = url;
+      link.click();
+      // Clean up
+      setTimeout(function() { URL.revokeObjectURL(url); }, 100);
+    }, 'image/png');
     if (btn) btn.textContent = '📷 导出图片';
     // Restore page states
     pageStates.forEach(function(s) { s.el.style.display = s.display; });
