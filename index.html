@@ -2,11 +2,12 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GUS 要闻速览 · 全周期看板</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -55,7 +56,7 @@ html,body{
 /* ─── HEADER ─── */
 .hdr{
   background:var(--logo);
-  padding:20px 48px 18px;
+  padding:14px 40px 12px;
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
@@ -73,14 +74,14 @@ html,body{
   text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:6px;
 }
 .hl-title{
-  font-size:28px;font-weight:800;color:#fff;
-  letter-spacing:-1px;line-height:1;
+  font-size:22px;font-weight:800;color:#fff;
+  letter-spacing:-.5px;line-height:1;
 }
 .hl-period{
-  font-size:10.5px;color:rgba(255,255,255,.38);
-  margin-top:4px;letter-spacing:.3px;
+  font-size:9px;color:rgba(255,255,255,.38);
+  margin-top:3px;letter-spacing:.2px;
 }
-.hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.hdr-r{display:flex;flex-direction:row;align-items:center;gap:8px;}
 .badge{
   display:inline-flex;align-items:center;gap:4px;
   padding:3px 10px;border-radius:3px;
@@ -94,18 +95,18 @@ html,body{
 }
 
 /* ─── MAIN PAD ─── */
-.pad{padding:18px 48px 0;}
+.pad{padding:12px 40px 0;}
 
 /* ─── SECTION HEAD ─── */
 .sh{
-  padding:10px 22px 10px;
-  font-size:20px;font-weight:700;letter-spacing:1.2px;
+  padding:7px 18px 7px;
+  font-size:14px;font-weight:700;letter-spacing:.8px;
   text-transform:uppercase;color:#fff;
-  display:flex;align-items:center;gap:9px;
+  display:flex;align-items:center;gap:7px;
   background:var(--n);
-  border-radius:8px 8px 0 0;
+  border-radius:7px 7px 0 0;
 }
-.sh::before{content:'';width:3px;height:18px;background:#fff;border-radius:2px;flex-shrink:0;opacity:.7;}
+.sh::before{content:'';width:2.5px;height:14px;background:#fff;border-radius:2px;flex-shrink:0;opacity:.7;}
 .sh.rd{background:var(--r2);}.sh.rd::before{background:#fff;}
 .sh.g{background:var(--g);}.sh.g::before{background:#fff;}
 .sh.o{background:var(--o);}.sh.o::before{background:#fff;}
@@ -114,10 +115,10 @@ html,body{
 /* ─── CARD ─── */
 .card{
   background:var(--w);
-  border-radius:8px;
-  box-shadow:0 1px 3px rgba(0,0,0,.05),0 0 0 1px rgba(0,0,0,.03);
+  border-radius:7px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.02);
   overflow:visible;
-  margin-bottom:14px;
+  margin-bottom:10px;
 }
 
 /* ─── 单量 KPI ─── */
@@ -125,12 +126,12 @@ html,body{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   background:var(--w);
-  border-radius:8px;
-  box-shadow:0 1px 3px rgba(0,0,0,.05),0 0 0 1px rgba(0,0,0,.03);
-  margin-bottom:14px;
+  border-radius:7px;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.02);
+  margin-bottom:10px;
 }
 .k{
-  padding:16px 20px 14px;
+  padding:11px 16px 10px;
   border-right:1px solid var(--l);
   position:relative;
   text-align:center;
@@ -138,17 +139,17 @@ html,body{
 .k:last-child{border-right:none;}
 .k::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--logo);}
 .k.g::before{background:var(--g);}
-.kl{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx);margin-bottom:8px;}
-.kv{font-size:26px;font-weight:800;color:var(--logo);line-height:1;letter-spacing:-1.5px;}
-.kv .u{font-size:11px;font-weight:500;color:var(--ts);}
+.kl{font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx);margin-bottom:5px;}
+.kv{font-size:22px;font-weight:800;color:var(--logo);line-height:1;letter-spacing:-1px;}
+.kv .u{font-size:10px;font-weight:500;color:var(--ts);}
 .kv.g{color:var(--g);}
-.kt{font-size:9.5px;margin-top:5px;font-weight:600;}
+.kt{font-size:8.5px;margin-top:3px;font-weight:600;}
 .kt.u{color:var(--g);}
 .kt.d{color:var(--r2);}
 
 /* ─── RISK BANNER ─── */
-.rb{background:var(--r2);padding:10px 22px;display:flex;align-items:center;gap:10px;}
-.rb-t{font-size:11px;font-weight:700;color:#fff;letter-spacing:.3px;}
+.rb{background:var(--r2);padding:7px 18px;display:flex;align-items:center;gap:8px;}
+.rb-t{font-size:10px;font-weight:700;color:#fff;letter-spacing:.2px;}
 
 /* ─── RISK BODY ─── */
 .risk{
@@ -177,13 +178,13 @@ html,body{
 }
 .hc{
   text-align:center;
-  padding:11px 6px 10px;
+  padding:8px 5px 7px;
   border-right:1px solid var(--l);
 }
 .hc:last-child{border-right:none;}
-.hcn{font-size:20px;font-weight:800;color:var(--logo);line-height:1;}
+.hcn{font-size:16px;font-weight:800;color:var(--logo);line-height:1;}
 .hcn.r{color:var(--r2);}
-.hcl{font-size:8.5px;color:var(--ts);margin-top:4px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;}
+.hcl{font-size:7.5px;color:var(--ts);margin-top:2px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
 
 /* ─── 招聘进度 横排 6列 ─── */
 .recruit{
@@ -193,13 +194,13 @@ html,body{
 }
 .rm{
   text-align:center;
-  padding:12px 6px 10px;
+  padding:8px 5px 7px;
   border-right:1px solid var(--l);
 }
 .rm:last-child{border-right:none;}
-.rmn{font-size:20px;font-weight:800;color:var(--n);line-height:1;}
+.rmn{font-size:16px;font-weight:800;color:var(--n);line-height:1;}
 .rmn.g{color:var(--g);}
-.rml{font-size:8.5px;color:var(--ts);margin-top:4px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;}
+.rml{font-size:7.5px;color:var(--ts);margin-top:2px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
 
 /* ─── 进度条 ─── */
 .pw{padding:6px 18px 10px;}
@@ -240,35 +241,101 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 
 /* ─── HR GRID ─── */
 .hm{
-  padding:10px 16px;
+  padding:7px 12px;
   border-right:1px solid var(--l);
   border-bottom:1px solid var(--l);
 }
 .hm-t{
-  font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:var(--n);margin-bottom:7px;display:flex;align-items:center;gap:5px;
+  font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--n);margin-bottom:5px;display:flex;align-items:center;gap:4px;
 }
-.hm-t::before{content:'';width:2.5px;height:10px;background:var(--n);border-radius:2px;}
+.hm-t::before{content:'';width:2px;height:9px;background:var(--n);border-radius:2px;}
 .hi{
-  display:flex;gap:6px;font-size:10.5px;color:var(--tb);
-  padding:2.5px 0;border-bottom:1px dashed #F3F4F6;
-  line-height:1.45;align-items:flex-start;
+  display:flex;gap:5px;font-size:10px;color:var(--tb);
+  padding:2px 0;border-bottom:1px dashed #F3F4F6;
+  line-height:1.4;align-items:flex-start;
 }
 .hi:last-child{border-bottom:none;}
-.hi::before{content:'—';color:var(--tx);font-size:9px;flex-shrink:0;margin-top:1px;}
+.hi::before{content:'—';color:var(--tx);font-size:8px;flex-shrink:0;margin-top:.5px;}
+
+/* ─── HR MODULE ROW + DROPDOWN ─── */
+.hm-row {
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--l);
+  transition: background .15s;
+}
+.hm-row:last-child { border-bottom: none; }
+.hm-row.hm-hidden { display: none; }
+.hm-row .hm-t {
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--n); margin-bottom: 3px; display: flex; align-items: center; gap: 4px;
+}
+.hm-row .hm-t::before { content: ''; width: 2px; height: 10px; background: var(--n); border-radius: 2px; }
+.hm-row .hm-body {
+  font-size: 10px; color: var(--tb); line-height: 1.5;
+}
+.hm-row .hm-body ul { margin: 0; padding: 0; list-style: none; }
+.hm-row .hm-body li {
+  padding: 2px 0; border-bottom: 1px dashed #F3F4F6; line-height: 1.35;
+}
+.hm-row .hm-body li:last-child { border-bottom: none; }
+.hm-row .hm-body li::before { content: '—'; color: var(--tx); font-size: 8px; margin-right: 6px; }
+
+/* HR dropdown */
+.hr-filter-wrap {
+  display: inline-flex; align-items: center; gap: 6px; position: relative;
+  margin-left: 8px;
+}
+.hr-filter-btn {
+  font-size: 8px; font-weight: 600; color: var(--ts); background: #fff;
+  border: 1px solid var(--ln); border-radius: 3px; padding: 1px 6px;
+  cursor: pointer; font-family: inherit; white-space: nowrap;
+  display: flex; align-items: center; gap: 3px;
+}
+.hr-filter-btn::after {
+  content: ''; width: 0; height: 0;
+  border-left: 3px solid transparent; border-right: 3px solid transparent;
+  border-top: 4px solid var(--ts);
+}
+.hr-filter-drop {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: #fff; border: 1px solid var(--ln); border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12); z-index: 100;
+  min-width: 140px; padding: 4px 0; margin-top: 3px;
+}
+.hr-filter-drop.open { display: block; }
+.hr-filter-drop label {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px; font-size: 10px; color: var(--tb); cursor: pointer;
+  white-space: nowrap;
+}
+.hr-filter-drop label:hover { background: #F9FAFB; }
+.hr-filter-drop input[type=checkbox] {
+  width: 12px; height: 12px; accent-color: var(--logo);
+}
+.hr-filter-actions {
+  display: flex; gap: 4px; padding: 4px 8px; border-top: 1px solid var(--l);
+}
+.hr-filter-actions button {
+  flex: 1; font-size: 9px; padding: 2px 6px; border-radius: 3px;
+  border: 1px solid var(--ln); background: #fff; cursor: pointer; font-family: inherit;
+}
+.hr-filter-actions button:hover { background: #F3F4F6; }
+.hr-filter-actions button.sel-all { color: var(--logo); border-color: var(--logo); }
+
 
 /* ─── NUM LIST ─── */
-.nl{list-style:none;padding:6px 18px 8px;}
+.nl{list-style:none;padding:4px 14px 6px;}
 .nl li{
-  display:flex;gap:10px;padding:5px 0;
+  display:flex;gap:8px;padding:3.5px 0;
   border-bottom:1px solid #F3F4F6;
-  font-size:11px;color:var(--tb);line-height:1.5;align-items:flex-start;
+  font-size:10.5px;color:var(--tb);line-height:1.45;align-items:flex-start;
 }
 .nl li:last-child{border-bottom:none;}
 .nn{
-  min-width:19px;height:19px;background:var(--n);color:#fff;
-  border-radius:4px;display:flex;align-items:center;justify-content:center;
-  font-size:9.5px;font-weight:700;flex-shrink:0;margin-top:1px;
+  min-width:17px;height:17px;background:var(--n);color:#fff;
+  border-radius:3px;display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;flex-shrink:0;margin-top:.5px;
 }
 
 /* ─── FOOTER ─── */
@@ -283,56 +350,29 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
   padding:3px 11px;border-radius:4px;border:1px solid var(--l);
   cursor:pointer;font-weight:600;font-family:inherit;
 }
-
-@media print{
-  @page{size:A4;margin:0;}
-  html,body{background:#E2E4E9;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .btn,.btn-export{display:none;}
-  .card{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
-  .kpi-3{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
-  .page{max-width:100%;}
-}
-
-/* ─── TAB BAR ─── */
-.tab-bar {
-  max-width: 1150px;
-  margin: 12px auto 0;
-  padding: 0 48px;
-  display: flex;
-  gap: 0;
-  background: var(--w);
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05),0 0 0 1px rgba(0,0,0,.03);
-  overflow: hidden;
-}
-.tab {
-  flex: 1;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ts);
+.wn-select-hdr {
+  padding: 3px 26px 3px 8px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 4px;
+  font-size: 9.5px;
+  font-weight: 600;
+  background: rgba(255,255,255,.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E") no-repeat right 8px center;
+  color: rgba(255,255,255,.85);
   cursor: pointer;
-  background: var(--w);
-  border-right: 1px solid var(--l);
-  transition: all .2s;
-  letter-spacing: .5px;
-  user-select: none;
+  font-family: inherit;
+  min-width: 68px;
+  -webkit-appearance: none;
+  appearance: none;
 }
-.tab:last-child { border-right: none; }
-.tab:hover {
-  background: #F3F4F6;
-  color: var(--n);
+.wn-select-hdr:focus {
+  outline: none;
+  border-color: rgba(255,255,255,.45);
+  box-shadow: 0 0 0 2px rgba(255,255,255,.1);
 }
-.tab.active {
-  background: var(--logo);
+.wn-select-hdr option {
+  background: #1a1a2e;
   color: #fff;
 }
-.tab.active:hover {
-  background: var(--logo);
-  color: #fff;
-}
-
 /* ─── PRINT ─── */
 @media print{
   @page{size:A4;margin:0;}
@@ -341,7 +381,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
   .card{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .kpi-3{box-shadow:0 0 0 1px rgba(0,0,0,.06);}
   .page{max-width:100%;}
-  .tab-bar{display:none;}
+  .wn-select-hdr{display:none;}
   .week-panel{display:none!important;}
   .week-panel.print-visible{display:block!important;}
 }
@@ -352,7 +392,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 .week-panel.empty-state .kv {
   color: var(--tx) !important;
 }
-.sparkline{display:block;margin:6px auto 0;opacity:.95;border-radius:4px;}
+.sparkline{display:block;margin:4px auto 0;opacity:.95;border-radius:4px;}
 .k:hover .sparkline,.rm:hover .sparkline{opacity:1;}
 /* no-chart cards: vertically center */
 .rm.no-chart,.hc.no-chart{display:flex;flex-direction:column;justify-content:center;min-height:84px;}
@@ -364,19 +404,8 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <body>
 
 <!-- PAGE BACKGROUND TOP -->
-<div style="height:12px;background:var(--bg);"></div>
+<div style="height:10px;background:var(--bg);"></div>
 
-<div class="tab-bar">
-<div class="tab" data-week="W15">W15</div>
-<div class="tab" data-week="W16">W16</div>
-<div class="tab" data-week="W17">W17</div>
-<div class="tab" data-week="W18">W18</div>
-<div class="tab" data-week="W19">W19</div>
-<div class="tab active" data-week="W20">W20</div>
-<div class="tab" data-week="W21">W21</div>
-</div>
-
-<div style="height:8px;background:var(--bg);"></div>
 
 <!-- ALL WEEK PANELS -->
 <div id="week-W15" class="week-panel" style="display:none">
@@ -384,11 +413,21 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hdr">
 <div class="hdr-l">
 <div class="hl-top">GUS &nbsp;&middot;&nbsp; Human Resources Weekly Report</div>
-<div class="hl-title">要闻速览 &nbsp;W14</div>
+<div class="hl-title">要闻速览 &nbsp;W15</div>
 <div class="hl-period">2026 / 04 / 06 &ndash; 04 / 10 &nbsp;&middot;&nbsp; GUS HRBP 出品</div>
 </div>
 <div class="hdr-r">
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -450,30 +489,51 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <tr><td><span class="tg tg-r">美西（中台）</span></td><td><strong>美区运力组同事</strong>被区域调度投诉要求使用指定服务商并暗示可以收红包。</td><td><span class="tg tg-o">调查中</span></td></tr>
 <tr><td><span class="tg tg-r">佛州（后台）</span></td><td><strong>CNO 员工</strong>因团建活动不满，对 HR 进行人身攻击并辱骂，遭其他同事报警，此员工被警方带走并关押 72 小时。返回上班后，法务侧建议收集更多支持文件再做辞退动作。</td><td><span class="tg tg-o">处理中</span></td></tr>
 </tbody></table></div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-<div class="hm">
+<div class="card">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="信息化" onchange="toggleHRModule(this)"> 信息化</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展 / 培训</label>
+<label><input type="checkbox" checked data-module="文化建设" onchange="toggleHRModule(this)"> 文化建设</label>
+
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi">1️⃣</div>
+<div class="hm-body"><ul>
+<li>1️⃣</li>
+</ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="信息化">
 <div class="hm-t">信息化</div>
-<div class="hi"></div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi"></div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;">
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展 / 培训</div>
-<div class="hi"></div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化建设">
 <div class="hm-t">文化建设</div>
-<div class="hi"></div>
-</div>
-</div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
 <div class="card">
 <div class="sh o">其他事项</div>
@@ -493,6 +553,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="hdr-r">
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -554,30 +624,50 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <tr><td><span class="tg tg-r">美西（中台）</span></td><td><strong>美西 CNO.H</strong>：发生多起员工投诉事件，且多名员工扬言要走劳动仲裁。（其中有个别员工推波助澜）。</td><td><span class="tg tg-o">调查中</span></td></tr>
 </tbody></table></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="信息化" onchange="toggleHRModule(this)"> 信息化</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi">50%，75%，有些是签了还没规范命名，每天刷。90%</div>
+<div class="hm-body"><ul>
+<li>50%，75%，有些是签了还没规范命名，每天刷。90%</li>
+</ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="信息化">
 <div class="hm-t">信息化</div>
-<div class="hi">考勤合规，每周开会，美西拉了和仓组长的群，</div>
+<div class="hm-body"><ul>
+<li>考勤合规，每周开会，美西拉了和仓组长的群，</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi"></div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;">
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi"></div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi"></div>
-</div>
+<div class="hm-body"><ul>
+<li></li>
+</ul></div>
 </div>
 </div>
 <div class="card">
@@ -599,6 +689,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="hdr-r">
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -631,9 +731,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="card">
 <div class="sh rd">业务大事件</div>
 <ul class="nl">
-<li><div class="nn">1</div><span>1️⃣站点标准化项目启动，丹佛+凤凰城上线分拣机；自营干线司机加速招聘；</span></li>
-<li><div class="nn">2</div><span>2️⃣L1员工：已和领导确认，所有人员在申请资料时，需先确认最终入职/工作地点，以确保后续签证合规、岗位安排及属地管理顺畅推进。</span></li>
-<li><div class="nn">3</div><span>3️⃣L1员工在当地用车需求，目前行政部反馈中南区有3名员工提出申请Tesla车辆需求。现阶段公司尚未就L1员工车辆配置制定统一标准，是否按人均配置专属车辆暂无明确规定。若按"一人一车"执行，后续所有L1员工的车辆管理、成本控制及资源配置将面临较大挑战。此事项已与行政负责人沟通，建议进一步请豪总明确统一配置标准，以便后续规范执行。</span></li>
+<li><div class="nn">1</div><span>1️⃣加拿大5月底开始拓城，前期开设多伦多及温哥华各15w尺仓库+7个站点。已储备管理候选人，HR开始沟通第一批赴加支援名单中，加拿大薪酬标准1.0修改中。</span></li>
+<li><div class="nn">2</div><span>2️⃣站点分拣机在丹佛试点上线，本周末安装完毕正式使用。</span></li>
+<li><div class="nn">3</div><span>3️⃣干支线卡车新增4条试运行线路，从a-b-a 线路改换成 a-b-c-a 线路。 增加自营trailer 数量</span></li>
 </ul></div>
 <div class="card">
 <div class="sh b">招聘进度（截止 4/20）</div>
@@ -656,11 +756,11 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="card">
 <div class="sh b">组织人事变动</div>
-<table><thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:98px">类型</th></tr></thead><tbody>
-<tr><td><span class="tg tg-n">前台</span></td><td>常哲正式就任美西区长，过渡期结束</td><td><span class="tg tg-b">正式任命</span></td></tr>
-<tr><td><span class="tg tg-g">新增</span></td><td>加拿大 HR 组编制新增 4 人，已启动招聘流程</td><td><span class="tg tg-g">组织扩张</span></td></tr>
-<tr><td><span class="tg tg-n">后台</span></td><td>佛州 HR 主管林威提出离职，启动交接流程</td><td><span class="tg tg-n">离职 / 交接</span></td></tr>
-</tbody></table></div>
+<ul class="nl">
+<li><div class="nn">1</div><span>1️⃣美西大区：CNO调度组长转入操作管理部， 导致cno 卡车叫车瘫痪，副区长@常哲有想法建立另外一个新中台，作为调度总部直接统筹全区域调度，不再让hub自己计划。还未与豪总沟通，HR等待反馈；</span></li>
+<li><div class="nn">2</div><span>2️⃣东北大区:PHL.H由于货量规模小，业务模式简单、复杂度低，仅做路区细分，暂不涉及复杂环节。架构仅设置分拣组和调度组；人员配置：暂不配置仓长，组长作为负责人。先按照此模式试跑，后续再评估是否定义三级HUB以及按照标准架构和仓长配置。</span></li>
+<li><div class="nn">3</div><span>3️⃣中南大区：有批量运营同事希望转技术岗，已与@郑胤达 Jim（Yinda Zheng）沟通先不予以理会，同步云飞情况看如何增强员工对于工作的满意度。</span></li>
+</ul></div>
 <div class="card">
 <div class="sh rd">员工关系事件</div>
 <table><thead><tr><th style="width:80px">区域</th><th>事件描述</th><th style="width:72px">状态</th></tr></thead><tbody>
@@ -668,42 +768,62 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <tr><td><span class="tg tg-r">美西（中台）</span></td><td><strong>操作管理部 @张家义 Awan（Jiayi Zhang）</strong>因加班时长过高换年薪，但员工拒绝。目前全美网络由其管理，若不能谈妥会涉及比较大的网络问题。 HR 端与文</td><td><span class="tg tg-o">谈判中</span></td></tr>
 </tbody></table></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="信息化" onchange="toggleHRModule(this)"> 信息化</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi">1️⃣ 个人协议签署。组织各区区长、仓长会议，达成一致，设定 90% 目标值，5/3 前完成。与各区开周会复盘进度，HUB 会上晒进度。</div>
-<div class="hi">2️⃣ 协议用 ipad+ 签字小程序。GUS IT 3 天开发完毕，已完成美西、Ground 区域试点并验证可提效，各区域已完成 iPad 采购，预计下周全美正式上线。</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 个人协议签署。组织各区区长、仓长会议，达成一致，设定 90% 目标值，5/3 前完成。与各区开周会复盘进度，HUB 会上晒进度。</li>
+<li>2️⃣ 协议用 ipad+ 签字小程序。GUS IT 3 天开发完毕，已完成美西、Ground 区域试点并验证可提效，各区域已完成 iPad 采购，预计下周全美正式上线。</li>
+</ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="信息化">
 <div class="hm-t">信息化</div>
-<div class="hi">1️⃣ 美西供应商门户上线问题已梳理同步解决方案；</div>
-<div class="hi">2️⃣ 考勤分工标准：已和区长/仓组长拉齐所有区域初步分工，本周五输出职责分工标准，下周一全美推广；</div>
-<div class="hi">3️⃣ 劳务工个人协议签署电子化：已实现，并在美西试行完成；</div>
-<div class="hi">4️⃣ 正式工打卡签字报表：问题梳理并形成解决方案，待进一步跟进；完成后能提高日常工作效率。</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 美西供应商门户上线问题已梳理同步解决方案；</li>
+<li>2️⃣ 考勤分工标准：已和区长/仓组长拉齐所有区域初步分工，本周五输出职责分工标准，下周一全美推广；</li>
+<li>3️⃣ 劳务工个人协议签署电子化：已实现，并在美西试行完成；</li>
+<li>4️⃣ 正式工打卡签字报表：问题梳理并形成解决方案，待进一步跟进；完成后能提高日常工作效率。</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi">1️⃣ 年终奖：确定年终奖分配规则，拆分给各部门确认，本周内回收整理汇报。</div>
-<div class="hi">2️⃣ 加拿大薪酬：加拿大薪资标准新设中，待对比谷仓&同行&候选人情况后讨论一版再汇报。</div>
-<div class="hi">3️⃣ 绩效：hub 绩效考核 Q2Q3 按导入系统开展，与实施运营组确认分工和时间节点要求，按分工推进考核中。</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 年终奖：确定年终奖分配规则，拆分给各部门确认，本周内回收整理汇报。</li>
+<li>2️⃣ 加拿大薪酬：加拿大薪资标准新设中，待对比谷仓&同行&候选人情况后讨论一版再汇报。</li>
+<li>3️⃣ 绩效：hub 绩效考核 Q2Q3 按导入系统开展，与实施运营组确认分工和时间节点要求，按分工推进考核中。</li>
+</ul></div>
 </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;">
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi">1️⃣ 福州面试官培训：福州职场面试官培训报名预热发布；</div>
-<div class="hi">2️⃣ 仓长能力认证：仓长认证方案已定稿，区长逐一确认无异议，本周六项目宣导及首期认证。</div>
-<div class="hi">3️⃣ 组织能力评估：目前中后台评估已进行收尾，区域 BP 已做二次培训，预计月底前完成。</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 福州面试官培训：福州职场面试官培训报名预热发布；</li>
+<li>2️⃣ 仓长能力认证：仓长认证方案已定稿，区长逐一确认无异议，本周六项目宣导及首期认证。</li>
+<li>3️⃣ 组织能力评估：目前中后台评估已进行收尾，区域 BP 已做二次培训，预计月底前完成。</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi">1️⃣ 福州职场协助部门负责人组织团队协同茶话会</div>
-<div class="hi">2️⃣ 司龄项目：祝福海报定稿、推文定稿、头像框制作中、纪念品选品中</div>
-<div class="hi">3️⃣ 年度文化规划方案与部门专项激励初步达成共识，待与新哥汇报</div>
-<div class="hi">4️⃣ 价值观专项排期待与 COE 沟通，文化专项与品牌分工梳理</div>
-<div class="hi">5️⃣ 筹备 GUS 因你而美丨"最美劳动者"劳模</div>
-</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 福州职场协助部门负责人组织团队协同茶话会</li>
+<li>2️⃣ 司龄项目：祝福海报定稿、推文定稿、头像框制作中、纪念品选品中</li>
+<li>3️⃣ 年度文化规划方案与部门专项激励初步达成共识，待与新哥汇报</li>
+<li>4️⃣ 价值观专项排期待与 COE 沟通，文化专项与品牌分工梳理</li>
+<li>5️⃣ 筹备 GUS 因你而美丨"最美劳动者"劳模</li>
+</ul></div>
 </div>
 </div>
 <div class="card">
@@ -725,6 +845,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hdr-r">
 <div class="badge badge-r">&#9632; 重大风险</div>
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -744,6 +874,14 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="kt u">&#9650; +31 W / 周</div>
 </div>
 </div>
+<div class="card">
+<div class="sh rd">业务大事件</div>
+<ul class="nl">
+<li><div class="nn">1</div><span>1️⃣站点标准化项目启动，丹佛+凤凰城上线分拣机；自营干线司机加速招聘；</span></li>
+<li><div class="nn">2</div><span>2️⃣L1员工：已和领导确认，所有人员在申请资料时，需先确认最终入职/工作地点，以确保后续签证合规、岗位安排及属地管理顺畅推进。</span></li>
+<li><div class="nn">3</div><span>3️⃣L1员工在当地用车需求，目前行政部反馈中南区有3名员工提出申请Tesla车辆需求。现阶段公司尚未就L1员工车辆配置制定统一标准，是否按人均配置专属车辆暂无明确规定。若按"一人一车"执行，后续所有L1员工的车辆管理、成本控制及资源配置将面临较大挑战。此事项已与行政负责人沟通，建议进一步请豪总明确统一配置标准，以便后续规范执行。</span></li>
+</ul></div>
+
 <div style="margin-bottom:14px;">
 <div class="rb"><div class="rb-t">业务大事件 &nbsp;&middot;&nbsp; 重大风险：全美车辆保险被取消投保</div></div>
 <div class="risk">
@@ -782,46 +920,69 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="card">
 <div class="sh b">组织人事变动</div>
-<table><thead><tr><th style="width:80px">层级</th><th>事项</th><th style="width:98px">类型</th></tr></thead><tbody>
-<tr><td><span class="tg tg-n">前台</span></td><td>履约前台：<br>1）中南大区：揽收部以城市划分，下设揽收专员岗，因业务量暂不区分明确，支持和调度工作均需承担；车辆管理部暂不下设小组，车辆管理岗、司机管理岗均直挂车辆管理部，减少兼职。<br>2）德州大区：揽收部取消下设揽收调度组、揽收支持组及司机组，调度岗和支持岗直挂在揽收部</td><td><span class="tg tg-n">架构调整</span></td></tr>
-</tbody></table></div>
+<ul class="nl">
+<li><div class="nn">1</div><span>1️⃣履约前台：<br>1）中南大区：揽收部以城市划分，下设揽收专员岗，因业务量暂不区分明确，支持和调度工作均需承担；车辆管理部暂不下设小组，车辆管理岗、司机管理岗均直挂车辆管理部，减少兼职。<br>2）德州大区：揽收部取消下设揽收调度组、揽收支持组及司机组，调度岗和支持岗直挂在揽收部，减少兼职。<br>3）加拿大大区：参考其他大区更新。新增YOW01、YUL01、YQB01、YYC01、YEG01、运营支持部，YYZ.H、YVR.H从片区平移至区域二级组织。</span></li>
+<li><div class="nn">2</div><span>2️⃣业务前台：本地客户部新增政府关系组，负责本地政府公共关系维护。</span></li>
+<li><div class="nn">3</div><span>3️⃣运营中台：运力管理部新增自营运力组，负责自营业务业务体系搭建和闭环。DO数字运营部AI团队负责人入职；信息安全组计划外聘顾问。</span></li>
+<li><div class="nn">4</div><span>4️⃣支持后台：US 人力资源部新增加拿大HR组。</span></li>
+</ul></div>
 <div class="card">
 <div class="sh rd">员工关系事件</div>
 <table><thead><tr><th style="width:80px">区域</th><th>事件描述</th><th style="width:72px">状态</th></tr></thead><tbody>
 <tr><td><span class="tg tg-r">大湖（前台）</span></td><td><strong>CVG 员工 @李爱女（Ainyu Li）</strong>：在因绩效表现及违纪行为（擅自离岗、上班刷剧）被调整至 CVG HUB 调度组后，产生抵触情绪，通过多次虚假陈述和恶意举报攻击主管欧阳。李爱女在与欧阳沟通工作时突然自行倒地并要求拨打 911，随后向同事散布"被主管推倒晕厥"的虚假言论。911 入场后</td><td><span class="tg tg-r">严重违纪调查中</span></td></tr>
 </tbody></table></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="信息化" onchange="toggleHRModule(this)"> 信息化</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi">1️⃣ 劳务工个人协议签署：截至 4/29 全美签署率 83%（未删除指纹前）。已和全美区长达成共识，未签署人员直接删除指纹，删除指纹后签署率达 89%。目前保持两日一更新数据，持续推送晾晒，最终目标保持动态数据 100% 签署。</div>
-<div class="hi">2️⃣ 协议签署 APP：GUS IT 3 天完成开发及更新，相较上一版</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 劳务工个人协议签署：截至 4/29 全美签署率 83%（未删除指纹前）。已和全美区长达成共识，未签署人员直接删除指纹，删除指纹后签署率达 89%。目前保持两日一更新数据，持续推送晾晒，最终目标保持动态数据 100% 签署。</li>
+<li>2️⃣ 协议签署 APP：GUS IT 3 天完成开发及更新，相较上一版</li>
+</ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="信息化">
 <div class="hm-t">信息化</div>
-<div class="hi">1️⃣ 劳务工管理分工：已完成分 1.0 梳理，待确认权责分工；</div>
-<div class="hi">2️⃣ 正式工考勤打卡及管理规范：取消加班流程，完成 Ground/大湖/中南/佛州三个区域意见收集均可尝试，待整理全美意见反馈评估后续落地；</div>
-<div class="hi">3️⃣ 正式工排班及考勤晾晒：协同 SSC 确认模板及推送内容和对象，预计本周推送；日超 8</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 劳务工管理分工：已完成分 1.0 梳理，待确认权责分工；</li>
+<li>2️⃣ 正式工考勤打卡及管理规范：取消加班流程，完成 Ground/大湖/中南/佛州三个区域意见收集均可尝试，待整理全美意见反馈评估后续落地；</li>
+<li>3️⃣ 正式工排班及考勤晾晒：协同 SSC 确认模板及推送内容和对象，预计本周推送；日超 8</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi">1️⃣ 年终奖：已按汇报结果，反馈各业务负责人，对接完成年终奖发放</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 年终奖：已按汇报结果，反馈各业务负责人，对接完成年终奖发放</li>
+</ul></div>
 </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;">
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi">1️⃣ 福州新人训：4 月新人训开展，覆盖美区+财经，共计 19 人</div>
-<div class="hi">2️⃣ 仓长能力认证：仓长已启动首次培训认证，参训合计 33 人，参训率 100%，参考率 94%，截止 4 月 3 日通过率 88%，持续组织补考认证。</div>
-<div class="hi">3️⃣ 站长能力认证：已与站点管理部沟通课程框架，并完成区长、片区长需求调研，计划下</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 福州新人训：4 月新人训开展，覆盖美区+财经，共计 19 人</li>
+<li>2️⃣ 仓长能力认证：仓长已启动首次培训认证，参训合计 33 人，参训率 100%，参考率 94%，截止 4 月 3 日通过率 88%，持续组织补考认证。</li>
+<li>3️⃣ 站长能力认证：已与站点管理部沟通课程框架，并完成区长、片区长需求调研，计划下</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi">1️⃣ 年度文化规划：已完成汇报，待与 BP 沟通后续推进事项，与品牌的协同分工待确认</div>
-<div class="hi">2️⃣ 司龄项目进度：推文定稿、海报+头像框设计中</div>
-<div class="hi">3️⃣ 五一最美劳动者：项目已发布（职场群+订阅号）、作品陆续发布，截止目前已发布 2 篇</div>
-</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 年度文化规划：已完成汇报，待与 BP 沟通后续推进事项，与品牌的协同分工待确认</li>
+<li>2️⃣ 司龄项目进度：推文定稿、海报+头像框设计中</li>
+<li>3️⃣ 五一最美劳动者：项目已发布（职场群+订阅号）、作品陆续发布，截止目前已发布 2 篇</li>
+</ul></div>
 </div>
 </div>
 <div class="card">
@@ -842,6 +1003,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="hdr-r">
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -910,11 +1081,23 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <tr><td><span class="tg tg-r">大湖（前台）</span></td><td><strong>CVG 员工 @李爱女（Ainyu Li）</strong>：上周仓库晕倒后，经医院检查后诊断为焦虑及抑郁症。后续调查中发现，该员工存在引导 DSP 司机提供不实证词的情况，要求对方作证其曾被仓长推搡导致晕倒，并持续在多个群组内发布带有诽谤性质的信息，对现场管理及团队氛围造成较大负面影响。基于以上情况，已与区长沟通进行辞退处理。考虑到员</td><td><span class="tg tg-r">辞退处理中</span></td></tr>
 </tbody></table></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div class="nl" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="人力系统" onchange="toggleHRModule(this)"> 人力系统</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①劳务供应商考核方案：完成汇报。增加计算逻辑后，下周发布考核方案，5月底启动考核。</li>
 <li>②COI保险合规：全美合规进度93%（美西100%、大湖83%、Ground91%、中南100%、东北100%、德州100%、佛州71%）仍有4家存量供应商未提交合规COI，目前业务急需用人，评估风险后，宽限供应商时间至五月底；</li>
 <li>③1099生物信息采集同意书签署: 全美已开始存量签署，本周完成上传。</li>
@@ -922,9 +1105,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤劳务供应商合同修改：经法务确认，主合同无变动，取消附件A双签，需发起调价流程完成内部审批。</li>
 </ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="人力系统">
 <div class="hm-t">人力系统</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①供应商门户：德州大区已完成供应商册培训，预计本周五完成提单培训，下周（5/25）开始正式上线；</li>
 <li>②劳务工日考勤打卡：除东北和大湖外，全美劳务工日打卡率和午休打卡率均在90%及以上；</li>
 <li>③正式工考勤管理：正式工日打卡率美西和中南已突破80%；已宣导试运行取消加班流程；</li>
@@ -932,18 +1115,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①美国区域添加人寿保险福利 $2.25/人/月，对应 $25,000 的赔付额度。若发生员工身故等突发情况（例如此前东北区域曾发生同事在飞机上不幸身亡的事件），该保险可提供相应赔付保障，减轻员工家庭压力。若按照目前健康保险的承担比例执行（员工承担30%，公司承担70%），以当前在保人数估算，公司年度新增成本约为 $8,000/年。</li>
 <li>②加拿大薪资标准：已完成一版标准倒推，待补充部分岗位竞对薪酬信息再推进汇报；</li>
 <li>③加拿大福利标准：已参考谷仓标准拟定多伦多和温哥华的标准，加拿大其他省份的法规和标准还在搜集整理中；</li>
 <li>④4月hub和站点的激励奖金：奖金已核算完毕，对接各区负责人确认中。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①仓长能力认证：第二期认证通过26人，通过率77%，第三期预计下周五开展。</li>
 <li>②管理提升方案：完成区域管理现状调研分析，并制定相应的提升课程，待进一步沟通优化。</li>
 <li>③新员工关怀方案：完成新员工入职关怀方案，输出相关To业务/BP、To员工的手册，待进一步沟通优化。</li>
@@ -951,9 +1134,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤福州职场面试官培训：截止目前已报名25人，5月29日正式启动。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①支援人员传记：本月主题已闭环，访谈区长评价最高的4位</li>
 <li>②入职欢迎：内容已全部定稿，已测试，待内容审核后即可进行正式推送</li>
 <li>③司龄项目：司龄海报及选品沟通中，后续AI工具推送。</li>
@@ -961,7 +1144,6 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤茶话会：福州职场本周4场茶话会</li>
 <li>⑥年度团建：福州职场年度团建已完成报名，截止目前共计报名220人</li>
 </ul></div>
-</div>
 </div>
 </div>
 </div>
@@ -978,6 +1160,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div class="hdr-r">
 <div class="badge badge-r">&#9632; 重大风险</div>
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -1044,41 +1236,61 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <tr><td><span class="tg tg-r">美西（前台）</span></td><td><strong>SFV 站点员工 @Kelvin Siu（Kelvin Siu）</strong>：于周末因长时间高强度工作、持续加班导致过度疲劳，在现场直接昏倒。后由 DSP 司机发现并紧急送往医院。该员工近两周加班时长已达到 60+ 小时。在事发当天，员工曾主动向</td><td><span class="tg tg-r">紧急关注中</span></td></tr>
 </tbody></table></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="信息化" onchange="toggleHRModule(this)"> 信息化</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi">1️⃣ 劳务供应商考核方案：本周四开始与各区区长沟通考核方案内容，下周二确认最终版本向新总汇报；</div>
-<div class="hi">2️⃣ COI 保险合规：全美合规进度 91%（美西 100%、大湖 67%、Ground 91%、中南 100%、东北 100%、德州 100%、佛州 60%）未提交合规 COI 的供应商已与区长沟通，以业务需要</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 劳务供应商考核方案：本周四开始与各区区长沟通考核方案内容，下周二确认最终版本向新总汇报；</li>
+<li>2️⃣ COI 保险合规：全美合规进度 91%（美西 100%、大湖 67%、Ground 91%、中南 100%、东北 100%、德州 100%、佛州 60%）未提交合规 COI 的供应商已与区长沟通，以业务需要</li>
+</ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="信息化">
 <div class="hm-t">信息化</div>
-<div class="hi">1️⃣ 劳务工管理：本周完成德州区权责梳理与宣导；</div>
-<div class="hi">2️⃣ 劳务工日考勤打卡：缺卡率 23%，午休缺卡率 44%，东北大区缺卡率较严重；其他区域缺卡率在 10% 以内。</div>
-<div class="hi">3️⃣ 正式工考勤管理：正式工考勤打卡率较 4/22 上升 23%；完成佛州/Ground/美西业务考勤培训（员工出勤/请假/加班总工）</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 劳务工管理：本周完成德州区权责梳理与宣导；</li>
+<li>2️⃣ 劳务工日考勤打卡：缺卡率 23%，午休缺卡率 44%，东北大区缺卡率较严重；其他区域缺卡率在 10% 以内。</li>
+<li>3️⃣ 正式工考勤管理：正式工考勤打卡率较 4/22 上升 23%；完成佛州/Ground/美西业务考勤培训（员工出勤/请假/加班总工）</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi">1️⃣ 加拿大薪资标准：已跟领导汇报，调整初版数据跟领导确认后，先运行 3 个月，再根据人员薪酬做校准；</div>
-<div class="hi">2️⃣ 美国福利标准：已跟领导汇报确定，待 BD 团队沟通确认；</div>
-<div class="hi">3️⃣ hub 激励奖金：仓长奖金已计算完毕，组长考核分数待输出后计算奖金；</div>
-<div class="hi">4️⃣ 站长激励奖金：站长考核分数重新确认中；</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 加拿大薪资标准：已跟领导汇报，调整初版数据跟领导确认后，先运行 3 个月，再根据人员薪酬做校准；</li>
+<li>2️⃣ 美国福利标准：已跟领导汇报确定，待 BD 团队沟通确认；</li>
+<li>3️⃣ hub 激励奖金：仓长奖金已计算完毕，组长考核分数待输出后计算奖金；</li>
+<li>4️⃣ 站长激励奖金：站长考核分数重新确认中；</li>
+</ul></div>
 </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;">
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi">1️⃣ 仓长能力认证：截止目前首期认证通过率 94%（2 人请假），本周五开展第 2 次认证《HUB 应急事件类型及处理》，已转为线上平台考试。</div>
-<div class="hi">2️⃣ 站长能力认证：已完成新哥和豪总汇报，项目暂缓。</div>
-<div class="hi">3️⃣ 新员工关怀方案：根据前 3 个月离职情况，输出新员工关怀方案，根据方案意见修改。</div>
-<div class="hi">4️⃣</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 仓长能力认证：截止目前首期认证通过率 94%（2 人请假），本周五开展第 2 次认证《HUB 应急事件类型及处理》，已转为线上平台考试。</li>
+<li>2️⃣ 站长能力认证：已完成新哥和豪总汇报，项目暂缓。</li>
+<li>3️⃣ 新员工关怀方案：根据前 3 个月离职情况，输出新员工关怀方案，根据方案意见修改。</li>
+<li>4️⃣</li>
+</ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi">1️⃣ 支援人员传记：访谈中，已宣发 2 篇；</div>
-<div class="hi">2️⃣ 入职欢迎：入职欢迎信+海报已定稿，成长地图定稿后推送；</div>
-<div class="hi">3️⃣ 司龄项目：司龄海报及选品沟通中，后续 AI 工具推送。</div>
-</div>
+<div class="hm-body"><ul>
+<li>1️⃣ 支援人员传记：访谈中，已宣发 2 篇；</li>
+<li>2️⃣ 入职欢迎：入职欢迎信+海报已定稿，成长地图定稿后推送；</li>
+<li>3️⃣ 司龄项目：司龄海报及选品沟通中，后续 AI 工具推送。</li>
+</ul></div>
 </div>
 </div>
 <div class="card">
@@ -1086,7 +1298,6 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <ul class="nl">
 <li><div class="nn">1</div><span>本周实施运营部门组织参观亚马逊仓库， 其中亚马逊公司考勤规范部门非常值得学习，以下为参观总结。</span></li>
 </ul></div>
-</div>
 </div>
 </div>
 </div>
@@ -1100,6 +1311,16 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 <div class="hdr-r">
 <div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
 </div></div>
 <div class="pad">
 <div class="kpi-3">
@@ -1168,11 +1389,23 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li><div class="nn">2</div><span>中台： L1外派员工@余雷用个人名义在美国lease特斯拉，但成本是公司承担。 3年lease到期后员工可以以非常低的价位买回此车。但资产不属于公司。 其他外派人员目前知晓此消息后都想用同样方式让公司提供车辆</span></li>
 </ul></div>
 <div class="card">
-<div class="sh g">HR 专项</div>
-<div class="nl" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
-<div class="hm">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="人力系统" onchange="toggleHRModule(this)"> 人力系统</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
 <div class="hm-t">劳务管理</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①劳务供应商考核方案：完成汇报。增加计算逻辑后，下周发布考核方案，5月底启动考核。</li>
 <li>②COI保险合规：全美合规进度93%（美西100%、大湖83%、Ground91%、中南100%、东北100%、德州100%、佛州71%）仍有4家存量供应商未提交合规COI，目前业务急需用人，评估风险后，宽限供应商时间至五月底；</li>
 <li>③1099生物信息采集同意书签署: 全美已开始存量签署，本周完成上传。</li>
@@ -1180,9 +1413,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤劳务供应商合同修改：经法务确认，主合同无变动，取消附件A双签，需发起调价流程完成内部审批。</li>
 </ul></div>
 </div>
-<div class="hm">
+<div class="hm-row" data-hr-module="人力系统">
 <div class="hm-t">人力系统</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①供应商门户：德州大区已完成供应商册培训，预计本周五完成提单培训，下周（5/25）开始正式上线；</li>
 <li>②劳务工日考勤打卡：除东北和大湖外，全美劳务工日打卡率和午休打卡率均在90%及以上；</li>
 <li>③正式工考勤管理：正式工日打卡率美西和中南已突破80%；已宣导试运行取消加班流程；</li>
@@ -1190,18 +1423,18 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-right:none;">
+<div class="hm-row" data-hr-module="薪酬绩效福利">
 <div class="hm-t">薪酬绩效福利</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①美国区域添加人寿保险福利 $2.25/人/月，对应 $25,000 的赔付额度。若发生员工身故等突发情况（例如此前东北区域曾发生同事在飞机上不幸身亡的事件），该保险可提供相应赔付保障，减轻员工家庭压力。若按照目前健康保险的承担比例执行（员工承担30%，公司承担70%），以当前在保人数估算，公司年度新增成本约为 $8,000/年。</li>
 <li>②加拿大薪资标准：已完成一版标准倒推，待补充部分岗位竞对薪酬信息再推进汇报；</li>
 <li>③加拿大福利标准：已参考谷仓标准拟定多伦多和温哥华的标准，加拿大其他省份的法规和标准还在搜集整理中；</li>
 <li>④4月hub和站点的激励奖金：奖金已核算完毕，对接各区负责人确认中。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-bottom:none;">
+<div class="hm-row" data-hr-module="人才发展-培训">
 <div class="hm-t">人才发展/培训</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①仓长能力认证：第二期认证通过26人，通过率77%，第三期预计下周五开展。</li>
 <li>②管理提升方案：完成区域管理现状调研分析，并制定相应的提升课程，待进一步沟通优化。</li>
 <li>③新员工关怀方案：完成新员工入职关怀方案，输出相关To业务/BP、To员工的手册，待进一步沟通优化。</li>
@@ -1209,9 +1442,9 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <li>⑤福州职场面试官培训：截止目前已报名25人，5月29日正式启动。</li>
 </ul></div>
 </div>
-<div class="hm" style="border-right:none;border-bottom:none;">
+<div class="hm-row" data-hr-module="文化氛围">
 <div class="hm-t">文化氛围</div>
-<div class="hi"><ul style="margin:0;padding:0;list-style:none;">
+<div class="hm-body"><ul>
 <li>①支援人员传记：本月主题已闭环，访谈区长评价最高的4位</li>
 <li>②入职欢迎：内容已全部定稿，已测试，待内容审核后即可进行正式推送</li>
 <li>③司龄项目：司龄海报及选品沟通中，后续AI工具推送。</li>
@@ -1224,11 +1457,160 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 </div>
 </div>
 </div>
+<div id="week-W22" class="week-panel" style="display:block">
+<div class="page">
+<div class="hdr">
+<div class="hdr-l">
+<div class="hl-top">GUS &nbsp;&middot;&nbsp; Human Resources Weekly Report</div>
+<div class="hl-title">要闻速览 &nbsp;W22</div>
+<div class="hl-period">2026 / 05 / 25 &ndash; 05 / 31 &nbsp;&middot;&nbsp; GUS HRBP 出品</div>
 </div>
+<div class="hdr-r">
+<div class="badge badge-ghost">内部汇报材料</div>
+<select class="wn-select-hdr" onchange="switchToWeek(this.value)">
+      <option value="W15">W15</option>
+      <option value="W16">W16</option>
+      <option value="W17">W17</option>
+      <option value="W18">W18</option>
+      <option value="W19">W19</option>
+      <option value="W20">W20</option>
+      <option value="W21">W21</option>
+      <option value="W22" selected>W22</option>
+    </select>
+</div></div>
+<div class="pad">
+<div class="kpi-3">
+<div class="k">
+<div class="kl">峰值下单量</div>
+<div class="kv">275<span class="u">W</span></div>
+<div class="kt">&nbsp;</div>
+</div>
+<div class="k">
+<div class="kl">日均下单量</div>
+<div class="kv">235<span class="u">W</span></div>
+<div class="kt">&nbsp;</div>
+</div>
+<div class="k">
+<div class="kl">日均分拣量</div>
+<div class="kv">361<span class="u">W</span></div>
+<div class="kt">&nbsp;</div>
+</div>
+</div>
+<div class="card">
+<div class="sh rd">业务大事件</div>
+<ul class="nl">
+<li><div class="nn">1</div><span>关于美国参议员公开信相关舆情情况：目前无针对公司的实质性动作，暂缓统一对内发声，以内部稳定为优先。</span></li>
+<li><div class="nn">2</div><span>关于 LAV Hub 劳务工媒体事件处理情况：拒绝向媒体提供支付凭证，通过协会关系向日报管理层施压，避免报道提及 GOFO 名称及相关信息，事情已解决。</span></li>
+<li><div class="nn">3</div><span>美西接入 TK CBT 项目：美西为 TK CBT 项目引入租赁大量 26 尺车辆和司机，同时 TK 尝试挖走我司组长级人才，原区长 David 散布我司因合规问题将被政府严查的不实信息。</span></li>
+</ul></div>
+
+<div class="card">
+<div class="sh">编制情况</div>
+<div class="headcount">
+<div class="hc"><div class="hcn">2040</div><div class="hcl">编制</div></div>
+<div class="hc"><div class="hcn">1489</div><div class="hcl">在职</div></div>
+<div class="hc"><div class="hcn">73%</div><div class="hcl">整体满编率</div></div>
+<div class="hc"><div class="hcn">74%</div><div class="hcl">AB类岗位满编率</div></div>
+<div class="hc"><div class="hcn">76%</div><div class="hcl">二级部门负责人<br/>满编率（剔除不招）</div></div>
+<div class="hc"><div class="hcn">71%</div><div class="hcl">二级部门负责人<br/>满编率（包含不招）</div></div>
+</div></div>
+
+<div class="card">
+<div class="sh b">招聘进度（截止 5/10）</div>
+<div class="recruit">
+<div class="rm"><div class="rmn">808</div><div class="rml">累计需求</div></div>
+<div class="rm"><div class="rmn">690</div><div class="rml">累计入职</div></div>
+<div class="rm"><div class="rmn">85%</div><div class="rml">整体达成率</div></div>
+<div class="rm"><div class="rmn">83%</div><div class="rml">周期内达成率</div></div>
+<div class="rm"><div class="rmn">99</div><div class="rml">5月入职</div></div>
+<div class="rm"><div class="rmn">4</div><div class="rml">AB类岗位入职</div></div>
+</div></div>
+
+<div class="card">
+<div class="sh b">组织人事变动</div>
+<ul class="nl">
+<li><div class="nn">1</div><span>因14117法案，与汪总及其他部门沟通成立美国本地信息安全委员会，成员如下<br>主席: Chuan Q Zheng ( @henry 郑总）<br>副主席： @马聪Cong (Cong Ma) ， @贺子强Jeff (Ziqiang He) <br>委员： @张振林Jax (Zhenlin Zhang) ，@刘天慧Tiffany（Tianhui Liu） @张迈月Charlotte (Maiyue Zhang) <br>工作执行小组：<br>信息安全组长兼DPO: @郑胤达 Jim（Yinda Zheng） <br>隐私保护与法律合规组长：@樱子 <br>业务连续性组长（IT业务连续性）：@张子伦（Zilun Zhang)<br>将由HR端发布全员任命通知</span></li>
+</ul></div>
+
+<div class="card">
+<div class="sh rd">员工关系事件</div>
+<ul class="nl">
+<li><div class="nn">1</div><span><strong>前台：</strong>东北车辆管理部员工@袁木榮Patrick（Patrick Yuan） (原谷仓员工）发现存在疑似签署"阴阳合同"的严重合规问题。目前已确认，在 JFK 场地租赁合同中，该员工利用职务便利，在房东原始合同基础上擅自修改支付金额及付款方式，提交至公司审批付款。公司款项支付至其关联公司账户后，再由其转付给房东，导致公司实际支付金额与房东合同约定金额存在明显差异，公司已发生双倍支付损失。进一步排查发现，其经手的另外两个仓库租赁合同中也存在类似情况，初步判断可能属于同类操作模式，涉及金额及具体影响范围仍在持续核实中。另了解到，该员工此前因其他事项曾被警方逮捕，后短暂获释，但近期确认再次被拘留。目前员工本人处于失联状态，电话、信息均无法取得联系。同时已确认，该员工目前仍持有公司资产及财务工具，包括：公司信用卡；公司支票；备用金约 2 万余美元</span></li>
+<li><div class="nn">2</div><span><strong>后台：</strong>中南区HR部门因主管施压严重，本地招聘压力大 产生招聘集体离职情况， 其中两位招聘员工有搬迁至其他区域想法。招聘能力不错员工考虑直接调岗继续任用。</span></li>
+</ul></div>
+
+<div class="card">
+<div class="sh g">HR 专项<span class="hr-filter-wrap">
+<button class="hr-filter-btn" onclick="toggleHRDropdown(this)" title="筛选板块">板块</button>
+<div class="hr-filter-drop">
+<label><input type="checkbox" checked data-module="劳务管理" onchange="toggleHRModule(this)"> 劳务管理</label>
+<label><input type="checkbox" checked data-module="人力系统" onchange="toggleHRModule(this)"> 人力系统</label>
+<label><input type="checkbox" checked data-module="薪酬绩效福利" onchange="toggleHRModule(this)"> 薪酬绩效福利</label>
+<label><input type="checkbox" checked data-module="人才发展-培训" onchange="toggleHRModule(this)"> 人才发展/培训</label>
+<label><input type="checkbox" checked data-module="文化氛围" onchange="toggleHRModule(this)"> 文化氛围</label>
+<div class="hr-filter-actions">
+<button class="sel-all" onclick="selectAllHRModules(this,true)">全选</button>
+<button onclick="selectAllHRModules(this,false)">清空</button>
+</div>
+</div>
+</span></div>
+<div class="hm-row" data-hr-module="劳务管理">
+<div class="hm-t">劳务管理</div>
+<div class="hm-body"><ul>
+<li>1、劳务供应商考核方案：完成汇报，并和各区长达成共识，第一次考核取5月数据看整体情况。本周已经和SSC沟通取数，下周同步和各仓库取派遣满足率的台账数据。</li>
+<li>2、COI保险合规：全美合规进度95%（美西100%、大湖83%、Ground91%、中南100%、东北100%、德州100%、佛州71%）仍有3家存量供应商未提交合规COI，目前业务急需用人，评估风险后，宽限供应商时间至五月底；</li>
+<li>3、1099生物信息采集同意书签署: 全美签署率33%，存在部分文件需要重命名，预计存量上传后，整体签署率60%。</li>
+<li>4、劳务入场须知：完成海报+立式展架设计，同步翻译英、西、法、越南语版本，下周联系供应商制作。</li>
+</ul></div>
+</div>
+<div class="hm-row" data-hr-module="人力系统">
+<div class="hm-t">人力系统</div>
+<div class="hm-body"><ul>
+<li>1️⃣供应商门户：完成供应商+业务+文员的培训，本周过渡阶段，下周一正式上线晾晒运营数据；</li>
+<li>2️⃣劳务工日考勤打卡：除东北和大湖外，全美劳务工日打卡率和午休打卡率均在90%及以上；</li>
+<li>3️⃣正式工考勤管理：正式工日打卡率美西和中南已突破80%；已宣导试运行取消加班流程；</li>
+<li>4️⃣正式工签字报表：自动确认小工具完成演示，待试用反馈；双周考勤由管理者确认试运行，暂未反馈问题；</li>
+<li>5️⃣加拿大考勤管理：规则梳理中，待评估系统配置情况；待确认加拿大后续考勤打卡推进。</li>
+</ul></div>
+</div>
+<div class="hm-row" data-hr-module="薪酬绩效福利">
+<div class="hm-t">薪酬绩效福利</div>
+<div class="hm-body"><ul>
+<li>1、加拿大薪资标准：按之前会议沟通要点调整并汇报，后续按季度回顾，半年定一稿；</li>
+<li>2、加拿大福利标准：参考谷仓标准，已汇报；</li>
+<li>3、4月hub和站点激励奖金：已核算完毕并汇报，考核指标需做调整。</li>
+</ul></div>
+</div>
+<div class="hm-row" data-hr-module="人才发展-培训">
+<div class="hm-t">人才发展/培训</div>
+<div class="hm-body"><ul>
+<li>1、仓长能力认证：本周五已完成第三场认证培训；</li>
+<li>2、管理提升方案：完成区域管理提升方案汇报，方案暂缓。</li>
+<li>3、新员工关怀方案：完成新员工入职关怀方案汇报，下周推进HRBP内部、负责人级方案宣导。</li>
+<li>4、双线管理矩阵：梳理片区长、运营支持负责人岗位职责，明确业务事项权责边界。</li>
+<li>5、福州职场面试官培训：参训31人，现场理论+实操+通关，整体培训满意度调研+训后考试进行中，后期根据结果进行下一步深化</li>
+</ul></div>
+</div>
+<div class="hm-row" data-hr-module="文化氛围">
+<div class="hm-t">文化氛围</div>
+<div class="hm-body"><ul>
+<li>1、入职前提醒：已汇报，英文翻译后，计划下周开始上线推送</li>
+<li>2、入职欢迎：内容已全部定稿，已测试，待英文版翻译好后即可进行正式推送</li>
+<li>3、司龄项目：司龄海报已定、头像框调整中、选品沟通中，其中3周年纪念品已定，5周年设计中、下周试运行祝福推送</li>
+<li>4、入职前提醒项目：内容已定稿，梳理完直接上级等相关人后即可推动</li>
+<li>5、年度团建：福州年度团建本周通关预热（价值观探索、团队合照、结合公司场景设计队旗队徽吉祥物）</li>
+</ul></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
 
 <!-- FOOTER -->
 <div class="ft">
-  <div class="fl">GUS HRBP &nbsp;&middot;&nbsp; 内部汇报材料，请勿外传 &nbsp;&middot;&nbsp; 全周期看板（W15–W21）</div>
+  <div class="fl">GUS HRBP &nbsp;&middot;&nbsp; 内部汇报材料，请勿外传 &nbsp;&middot;&nbsp; 全周期看板（W15–W22）</div>
   <div style="display:flex;align-items:center;gap:6px;">
     <button class="btn" onclick="printCurrentWeek()">&#128438; 导出 PDF / 打印</button>
     <button class="btn-export" onclick="exportImage()">&#128247; 导出图片</button>
@@ -1238,18 +1620,22 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 <div style="height:12px;background:var(--bg);"></div>
 
 <script>
-const weeks = ['W15', 'W16', 'W17', 'W18', 'W19', 'W20', 'W21'];
+const weeks = ['W15', 'W16', 'W17', 'W18', 'W19', 'W20', 'W21', 'W22'];
 
 function getActiveWeek() {
   const hash = window.location.hash.replace('#', '').toUpperCase();
   if (weeks.indexOf(hash) !== -1) return hash;
-  const activeTab = document.querySelector('.tab.active');
-  if (activeTab) return activeTab.getAttribute('data-week');
-  return 'W20';
+  const sel = document.querySelector('.wn-select-hdr');
+  if (sel) return sel.value;
+  return 'W22';
 }
 
 function switchToWeek(week) {
-  // Update tab bar
+  // Update dropdown
+  document.querySelectorAll('.wn-select-hdr').forEach(function(s) {
+    if (s.value !== week) s.value = week;
+  });
+  // Update tab bar (legacy)
   document.querySelectorAll('.tab').forEach(function(t) {
     t.classList.toggle('active', t.getAttribute('data-week') === week);
   });
@@ -1310,41 +1696,34 @@ function exportImage() {
   });
 }
 
-// Tab click handlers
-document.querySelectorAll('.tab').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    switchToWeek(this.getAttribute('data-week'));
-  });
-});
-
 // ─── LINE CHARTS ───
 var lineData = {
   order: {
-    peak:  { d: [269,277,286,285,275], c: '#E8610A' },
-    daily: { d: [212,215,233,232,228], c: '#E8610A' },
-    sort:  { d: [320,351,346,359,361], c: '#047857' }
+    peak:  { d: [286,285,275,275], c: '#E8610A' },
+    daily: { d: [233,232,228,235], c: '#E8610A' },
+    sort:  { d: [346,359,361,361], c: '#047857' }
   },
   recruit: {
-    demand:    { d: [626,656,698,732,775], c: '#E8610A' },
-    hired:     { d: [533,565,582,624,656], c: '#047857' },
-    rateO:     { d: [85,86,86,85,85],      c: '#E8610A' },
-    rateP:     { d: [83,83,83,82,82],      c: '#047857' },
-    monthIn:   { d: [81,114,140,33,65],    c: '#E8610A' },
-    abIn:      { d: [7,7,8,1,3],           c: '#047857' }
+    demand:    { d: [698,732,775,808], c: '#E8610A' },
+    hired:     { d: [582,624,656,690], c: '#047857' },
+    rateO:     { d: [86,85,85,85],    c: '#E8610A' },
+    rateP:     { d: [83,82,82,83],    c: '#047857' },
+    monthIn:   { d: [140,33,65,99],   c: '#E8610A' },
+    abIn:      { d: [8,1,3,4],        c: '#047857' }
   },
   headcount: {
-    total:    { d: [1879,1912,1958,1989,2028], c: '#E8610A' },
-    inpost:   { d: [1453,1442,1430,1432,1473], c: '#047857' },
-    rateFull: { d: [77,75,73,72,73],           c: '#E8610A' },
-    rateAB:   { d: [69,67,67,66,71],           c: '#047857' },
-    rateEx:   { d: [77,78,76,76,76],           c: '#E8610A' },
-    rateInc:  { d: [73,73,73,73,71],           c: '#047857' }
+    total:    { d: [1958,1989,2028,2040], c: '#E8610A' },
+    inpost:   { d: [1430,1432,1473,1489], c: '#047857' },
+    rateFull: { d: [73,72,73,73],         c: '#E8610A' },
+    rateAB:   { d: [67,66,71,74],         c: '#047857' },
+    rateEx:   { d: [76,76,76,76],         c: '#E8610A' },
+    rateInc:  { d: [73,73,71,71],         c: '#047857' }
   }
 };
 
 function drawLineChart(canvas, values, color) {
   var dpr = window.devicePixelRatio || 1;
-  var W = 150, H = 56;
+  var W = 130, H = 90;
   canvas.width = W * dpr;
   canvas.height = H * dpr;
   canvas.style.width = W + 'px';
@@ -1355,10 +1734,10 @@ function drawLineChart(canvas, values, color) {
   var min = Math.min.apply(null, values);
   var max = Math.max.apply(null, values);
   var range = max - min || 1;
-  var padL = 26, padR = 18, padT = 12, padB = 14;
+  var padL = 24, padR = 16, padT = 12, padB = 24;
   var cw = W - padL - padR; // chart area width
   var ch = H - padT - padB; // chart area height
-  var weeks = ['W17','W18','W19','W20','W21'];
+  var weeks = ['W19','W20','W21','W22'];
   var n = values.length;
 
   // Compute point positions
@@ -1431,7 +1810,7 @@ function drawLineChart(canvas, values, color) {
 
   // ── Week labels ──
   ctx.font = '600 7.5px Inter, -apple-system, PingFang SC, sans-serif';
-  ctx.textBaseline = 'top';
+  ctx.textBaseline = 'bottom';
   for (var i = 0; i < n; i++) {
     ctx.fillStyle = i === n - 1 ? color : '#9CA3AF';
     ctx.fillText(weeks[i], pts[i].x, H - 2);
@@ -1516,11 +1895,55 @@ function injectChartsForPanel(week) {
   });
 }
 
+// Hash-based navigation
+window.addEventListener('hashchange', function() {
+  switchToWeek(getActiveWeek());
+});
+
 // Initialize from URL hash or default
-(function init() {
-  const week = getActiveWeek();
-  switchToWeek(week);
-})();
+function init() {
+  var week = getActiveWeek();
+  try { switchToWeek(week); } catch(e) {}
+  try { injectChartsForPanel(week); } catch(e) {}
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+/* ─── HR 专项 板块筛选 ─── */
+function toggleHRDropdown(btn) {
+  var drop = btn.nextElementSibling;
+  var isOpen = drop.classList.contains('open');
+  // Close all other dropdowns
+  var allDrops = document.querySelectorAll('.hr-filter-drop.open');
+  for (var i = 0; i < allDrops.length; i++) allDrops[i].classList.remove('open');
+  if (!isOpen) drop.classList.add('open');
+}
+function toggleHRModule(cb) {
+  var card = cb.closest('.card');
+  var rows = card.querySelectorAll('.hm-row[data-hr-module="' + cb.dataset.module + '"]');
+  for (var i = 0; i < rows.length; i++) {
+    rows[i].classList.toggle('hm-hidden', !cb.checked);
+  }
+}
+function selectAllHRModules(btn, select) {
+  var drop = btn.closest('.hr-filter-drop');
+  var cbs = drop.querySelectorAll('input[type=checkbox]');
+  for (var i = 0; i < cbs.length; i++) {
+    cbs[i].checked = select;
+    toggleHRModule(cbs[i]);
+  }
+}
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.hr-filter-wrap')) {
+    var drops = document.querySelectorAll('.hr-filter-drop.open');
+    for (var i = 0; i < drops.length; i++) drops[i].classList.remove('open');
+  }
+});
+
 </script>
 
 </body>
