@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GUS 要闻速览 · 全周期看板</title>
+<title>GUS 要闻速览 · 全周期看板 v20260531</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
@@ -41,22 +41,22 @@ html,body{
   font-family:'Inter',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
   background:var(--bg);
   color:var(--tb);
-  font-size:11px;
-  line-height:1.5;
+  font-size:10.5px;
+  line-height:1.4;
   -webkit-font-smoothing:antialiased;
 }
 
 /* ─── PAGE ─── */
 .page{
-  max-width:1150px;
+  max-width:1100px;
   margin:0 auto;
-  padding:0 0 24px;
+  padding:0 0 12px;
 }
 
 /* ─── HEADER ─── */
 .hdr{
   background:var(--logo);
-  padding:14px 40px 12px;
+  padding:10px 32px 8px;
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
@@ -70,22 +70,22 @@ html,body{
   background:rgba(255,255,255,.25);
 }
 .hl-top{
-  font-size:8.5px;font-weight:700;letter-spacing:2.5px;
-  text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:6px;
+  font-size:7.5px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:4px;
 }
 .hl-title{
-  font-size:22px;font-weight:800;color:#fff;
+  font-size:18px;font-weight:800;color:#fff;
   letter-spacing:-.5px;line-height:1;
 }
 .hl-period{
-  font-size:9px;color:rgba(255,255,255,.38);
-  margin-top:3px;letter-spacing:.2px;
+  font-size:8.5px;color:rgba(255,255,255,.38);
+  margin-top:2px;letter-spacing:.2px;
 }
-.hdr-r{display:flex;flex-direction:row;align-items:center;gap:8px;}
+.hdr-r{display:flex;flex-direction:row;align-items:center;gap:6px;}
 .badge{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:3px 10px;border-radius:3px;
-  font-size:9.5px;font-weight:700;letter-spacing:.5px;
+  display:inline-flex;align-items:center;gap:3px;
+  padding:2px 8px;border-radius:3px;
+  font-size:9px;font-weight:700;letter-spacing:.4px;
 }
 .badge-r{background:var(--r2);color:#fff;}
 .badge-ghost{
@@ -95,18 +95,18 @@ html,body{
 }
 
 /* ─── MAIN PAD ─── */
-.pad{padding:12px 40px 0;}
+.pad{padding:8px 32px 0;}
 
 /* ─── SECTION HEAD ─── */
 .sh{
-  padding:7px 18px 7px;
-  font-size:14px;font-weight:700;letter-spacing:.8px;
+  padding:5px 14px 5px;
+  font-size:12px;font-weight:700;letter-spacing:.6px;
   text-transform:uppercase;color:#fff;
-  display:flex;align-items:center;gap:7px;
+  display:flex;align-items:center;gap:6px;
   background:var(--n);
-  border-radius:7px 7px 0 0;
+  border-radius:6px 6px 0 0;
 }
-.sh::before{content:'';width:2.5px;height:14px;background:#fff;border-radius:2px;flex-shrink:0;opacity:.7;}
+.sh::before{content:'';width:2.5px;height:12px;background:#fff;border-radius:2px;flex-shrink:0;opacity:.7;}
 .sh.rd{background:var(--r2);}.sh.rd::before{background:#fff;}
 .sh.g{background:var(--g);}.sh.g::before{background:#fff;}
 .sh.o{background:var(--o);}.sh.o::before{background:#fff;}
@@ -115,10 +115,10 @@ html,body{
 /* ─── CARD ─── */
 .card{
   background:var(--w);
-  border-radius:7px;
+  border-radius:6px;
   box-shadow:0 1px 2px rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.02);
   overflow:visible;
-  margin-bottom:10px;
+  margin-bottom:6px;
 }
 
 /* ─── 单量 KPI ─── */
@@ -126,48 +126,48 @@ html,body{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   background:var(--w);
-  border-radius:7px;
+  border-radius:6px;
   box-shadow:0 1px 2px rgba(0,0,0,.04),0 0 0 1px rgba(0,0,0,.02);
-  margin-bottom:10px;
+  margin-bottom:6px;
 }
 .k{
-  padding:11px 16px 10px;
+  padding:8px 12px 7px;
   border-right:1px solid var(--l);
   position:relative;
   text-align:center;
 }
 .k:last-child{border-right:none;}
-.k::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--logo);}
+.k::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--logo);}
 .k.g::before{background:var(--g);}
-.kl{font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx);margin-bottom:5px;}
-.kv{font-size:22px;font-weight:800;color:var(--logo);line-height:1;letter-spacing:-1px;}
-.kv .u{font-size:10px;font-weight:500;color:var(--ts);}
+.kl{font-size:7px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx);margin-bottom:3px;}
+.kv{font-size:18px;font-weight:800;color:var(--logo);line-height:1;letter-spacing:-1px;}
+.kv .u{font-size:9px;font-weight:500;color:var(--ts);}
 .kv.g{color:var(--g);}
-.kt{font-size:8.5px;margin-top:3px;font-weight:600;}
+.kt{font-size:8px;margin-top:2px;font-weight:600;}
 .kt.u{color:var(--g);}
 .kt.d{color:var(--r2);}
 
 /* ─── RISK BANNER ─── */
-.rb{background:var(--r2);padding:7px 18px;display:flex;align-items:center;gap:8px;}
-.rb-t{font-size:10px;font-weight:700;color:#fff;letter-spacing:.2px;}
+.rb{background:var(--r2);padding:5px 14px;display:flex;align-items:center;gap:6px;}
+.rb-t{font-size:9.5px;font-weight:700;color:#fff;letter-spacing:.2px;}
 
 /* ─── RISK BODY ─── */
 .risk{
   background:var(--rbg);
   border:1px solid var(--rbd);border-top:none;
-  border-radius:0 0 8px 8px;
-  padding:10px 22px 12px;
+  border-radius:0 0 6px 6px;
+  padding:7px 16px 9px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:14px;
+  gap:8px;
+  margin-bottom:8px;
 }
 .ri{
-  background:#fff;border:1px solid var(--rbd);border-radius:6px;
-  padding:10px 14px;
+  background:#fff;border:1px solid var(--rbd);border-radius:5px;
+  padding:7px 10px;
 }
-.ri-t{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--r2);margin-bottom:5px;}
-.ri-b{font-size:11px;color:var(--tb);line-height:1.55;}
+.ri-t{font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--r2);margin-bottom:3px;}
+.ri-b{font-size:10.5px;color:var(--tb);line-height:1.45;}
 .ri-b strong{color:var(--r2);font-weight:700;}
 
 /* ─── 编制情况 横排 6列 ─── */
@@ -178,13 +178,13 @@ html,body{
 }
 .hc{
   text-align:center;
-  padding:8px 5px 7px;
+  padding:5px 4px 4px;
   border-right:1px solid var(--l);
 }
 .hc:last-child{border-right:none;}
-.hcn{font-size:16px;font-weight:800;color:var(--logo);line-height:1;}
+.hcn{font-size:14px;font-weight:800;color:var(--logo);line-height:1;}
 .hcn.r{color:var(--r2);}
-.hcl{font-size:7.5px;color:var(--ts);margin-top:2px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
+.hcl{font-size:7px;color:var(--ts);margin-top:1.5px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
 
 /* ─── 招聘进度 横排 6列 ─── */
 .recruit{
@@ -194,37 +194,37 @@ html,body{
 }
 .rm{
   text-align:center;
-  padding:8px 5px 7px;
+  padding:5px 4px 4px;
   border-right:1px solid var(--l);
 }
 .rm:last-child{border-right:none;}
-.rmn{font-size:16px;font-weight:800;color:var(--n);line-height:1;}
+.rmn{font-size:14px;font-weight:800;color:var(--n);line-height:1;}
 .rmn.g{color:var(--g);}
-.rml{font-size:7.5px;color:var(--ts);margin-top:2px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
+.rml{font-size:7px;color:var(--ts);margin-top:1.5px;font-weight:600;letter-spacing:.2px;text-transform:uppercase;}
 
 /* ─── 进度条 ─── */
-.pw{padding:6px 18px 10px;}
-.pl{display:flex;justify-content:space-between;font-size:9.5px;color:var(--ts);margin-bottom:4px;}
+.pw{padding:4px 14px 7px;}
+.pl{display:flex;justify-content:space-between;font-size:9px;color:var(--ts);margin-bottom:3px;}
 .pl span:last-child{font-weight:700;color:var(--n);}
-.pb{background:#E5E7EB;border-radius:2px;height:4px;overflow:hidden;}
-.pf{height:4px;border-radius:2px;}
+.pb{background:#E5E7EB;border-radius:2px;height:3px;overflow:hidden;}
+.pf{height:3px;border-radius:2px;}
 .pg{background:var(--g);}
 .po{background:var(--o);}
 
 /* ─── TABLE ─── */
 table{width:100%;border-collapse:collapse;}
 th{
-  padding:7px 14px;text-align:left;
-  font-size:8.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 10px;text-align:left;
+  font-size:8px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
   color:var(--tx);background:#F8F9FA;border-bottom:1.5px solid var(--l);
 }
 td{
-  padding:7px 14px;font-size:11px;color:var(--tb);
-  border-bottom:1px solid #F3F4F6;vertical-align:top;line-height:1.5;
+  padding:5px 10px;font-size:10.5px;color:var(--tb);
+  border-bottom:1px solid #F3F4F6;vertical-align:top;line-height:1.4;
 }
 tr:last-child td{border-bottom:none;}
 tr.dg td{background:var(--rbg);}
-tr.dg td:first-child{border-left:3px solid var(--r2);padding-left:11px;}
+tr.dg td:first-child{border-left:2.5px solid var(--r2);padding-left:7.5px;}
 td strong{color:var(--n);font-weight:700;}
 em{font-style:normal;color:var(--r2);font-weight:600;}
 
@@ -241,26 +241,26 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 
 /* ─── HR GRID ─── */
 .hm{
-  padding:7px 12px;
+  padding:5px 10px;
   border-right:1px solid var(--l);
   border-bottom:1px solid var(--l);
 }
 .hm-t{
-  font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
-  color:var(--n);margin-bottom:5px;display:flex;align-items:center;gap:4px;
+  font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;
+  color:var(--n);margin-bottom:3px;display:flex;align-items:center;gap:4px;
 }
-.hm-t::before{content:'';width:2px;height:9px;background:var(--n);border-radius:2px;}
+.hm-t::before{content:'';width:2px;height:8px;background:var(--n);border-radius:2px;}
 .hi{
-  display:flex;gap:5px;font-size:10px;color:var(--tb);
-  padding:2px 0;border-bottom:1px dashed #F3F4F6;
-  line-height:1.4;align-items:flex-start;
+  display:flex;gap:4px;font-size:9.5px;color:var(--tb);
+  padding:1.5px 0;border-bottom:1px dashed #F3F4F6;
+  line-height:1.35;align-items:flex-start;
 }
 .hi:last-child{border-bottom:none;}
-.hi::before{content:'—';color:var(--tx);font-size:8px;flex-shrink:0;margin-top:.5px;}
+.hi::before{content:'—';color:var(--tx);font-size:7.5px;flex-shrink:0;margin-top:.5px;}
 
 /* ─── HR MODULE ROW + DROPDOWN ─── */
 .hm-row {
-  padding: 6px 14px;
+  padding: 4px 10px;
   border-bottom: 1px solid var(--l);
   transition: background .15s;
 }
@@ -280,24 +280,24 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
   border-right: 1px solid var(--l);
 }
 .hm-row .hm-t {
-  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
-  color: var(--n); margin-bottom: 3px; display: flex; align-items: center; gap: 4px;
+  font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--n); margin-bottom: 2px; display: flex; align-items: center; gap: 4px;
 }
-.hm-row .hm-t::before { content: ''; width: 2px; height: 10px; background: var(--n); border-radius: 2px; }
+.hm-row .hm-t::before { content: ''; width: 2px; height: 9px; background: var(--n); border-radius: 2px; }
 .hm-row .hm-body {
-  font-size: 10px; color: var(--tb); line-height: 1.5;
+  font-size: 9.5px; color: var(--tb); line-height: 1.4;
 }
 .hm-row .hm-body ul { margin: 0; padding: 0; list-style: none; }
 .hm-row .hm-body li {
-  padding: 2px 0; border-bottom: 1px dashed #F3F4F6; line-height: 1.35;
+  padding: 1.5px 0; border-bottom: 1px dashed #F3F4F6; line-height: 1.3;
 }
 .hm-row .hm-body li:last-child { border-bottom: none; }
-.hm-row .hm-body li::before { content: '—'; color: var(--tx); font-size: 8px; margin-right: 6px; }
+.hm-row .hm-body li::before { content: '—'; color: var(--tx); font-size: 7.5px; margin-right: 5px; }
 
 /* HR dropdown */
 .hr-filter-wrap {
-  display: inline-flex; align-items: center; gap: 6px; position: relative;
-  margin-left: 8px;
+  display: inline-flex; align-items: center; gap: 4px; position: relative;
+  margin-left: 6px;
 }
 .hr-filter-btn {
   font-size: 8px; font-weight: 600; color: var(--ts); background: #fff;
@@ -338,29 +338,29 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 
 
 /* ─── NUM LIST ─── */
-.nl{list-style:none;padding:4px 14px 6px;}
+.nl{list-style:none;padding:2px 10px 4px;}
 .nl li{
-  display:flex;gap:8px;padding:3.5px 0;
+  display:flex;gap:6px;padding:2px 0;
   border-bottom:1px solid #F3F4F6;
-  font-size:10.5px;color:var(--tb);line-height:1.45;align-items:flex-start;
+  font-size:10px;color:var(--tb);line-height:1.4;align-items:flex-start;
 }
 .nl li:last-child{border-bottom:none;}
 .nn{
-  min-width:17px;height:17px;background:var(--n);color:#fff;
+  min-width:15px;height:15px;background:var(--n);color:#fff;
   border-radius:3px;display:flex;align-items:center;justify-content:center;
-  font-size:9px;font-weight:700;flex-shrink:0;margin-top:.5px;
+  font-size:8.5px;font-weight:700;flex-shrink:0;margin-top:.5px;
 }
 
 /* ─── FOOTER ─── */
 .ft{
-  max-width:1150px;margin:0 auto;
-  padding:0 48px 12px;
+  max-width:1100px;margin:0 auto;
+  padding:0 32px 8px;
   display:flex;justify-content:space-between;align-items:center;
 }
-.fl{font-size:9.5px;color:var(--tx);}
+.fl{font-size:9px;color:var(--tx);}
 .btn{
-  font-size:10px;color:var(--ts);background:var(--w);
-  padding:3px 11px;border-radius:4px;border:1px solid var(--l);
+  font-size:9.5px;color:var(--ts);background:var(--w);
+  padding:2px 9px;border-radius:4px;border:1px solid var(--l);
   cursor:pointer;font-weight:600;font-family:inherit;
 }
 .wn-select-hdr {
@@ -405,7 +405,7 @@ em{font-style:normal;color:var(--r2);font-weight:600;}
 .week-panel.empty-state .kv {
   color: var(--tx) !important;
 }
-.sparkline{display:block;margin:4px auto 0;opacity:.95;border-radius:4px;}
+.sparkline{display:block;margin:6px auto 0;opacity:.95;border-radius:4px;}
 .k:hover .sparkline,.rm:hover .sparkline{opacity:1;}
 /* no-chart cards: vertically center */
 .rm.no-chart,.hc.no-chart{display:flex;flex-direction:column;justify-content:center;min-height:84px;}
@@ -1716,9 +1716,15 @@ function switchToWeek(week) {
   });
   // Collect ancestors that must stay visible (handles nested panel structure)
   var ancestors = getAncestorPanels(targetId);
-  // Restore all .page elements first (clear previous state)
+  // Only reset .page display for the target panel and its ancestors
+  // (do NOT reset unrelated weeks' .page — they should stay hidden)
+  var pagesToReset = [targetId];
+  pagesToReset = pagesToReset.concat(ancestors);
   document.querySelectorAll('.week-panel > .page').forEach(function(pg) {
-    pg.style.display = '';
+    var parentId = pg.parentElement ? pg.parentElement.id : '';
+    if (pagesToReset.indexOf(parentId) !== -1) {
+      pg.style.display = '';
+    }
   });
   // Show/hide panels – ancestors are visible wrappers but their content hidden
   document.querySelectorAll('.week-panel').forEach(function(p) {
@@ -1744,10 +1750,13 @@ function switchToWeek(week) {
     var periodText = period ? period.textContent.trim() : week;
     fl.textContent = 'GUS HRBP · 内部汇报材料，请勿外传 · ' + week + '（' + periodText + '）';
   }
-  // Update URL hash
-  if (window.location.hash !== '#' + week.toLowerCase()) {
-    history.replaceState(null, '', '#' + week.toLowerCase());
-  }
+  // Update URL hash (best-effort, may fail on file://)
+  try {
+    if (window.location.hash !== '#' + week.toLowerCase()) {
+      history.replaceState(null, '', '#' + week.toLowerCase());
+    }
+  } catch(e) {}
+
   // Re-inject line charts for visible panel
   injectChartsForPanel(week);
 }
@@ -1758,6 +1767,92 @@ function printCurrentWeek() {
     p.classList.toggle('print-visible', p.id === 'week-' + week);
   });
   window.print();
+}
+
+// ─── EXPORT HELPERS ───
+function restorePageStates(states) {
+  states.forEach(function(s) { s.el.style.display = s.display; });
+}
+
+function tryDownload(canvas, week, btn, pageStates) {
+  // Strategy A: toBlob → blob URL download (works on http://, may fail on file://)
+  try {
+    canvas.toBlob(function(blob) {
+      if (!blob) {
+        // toBlob returned null silently → fall through
+        tryDataURL(canvas, week, btn, pageStates);
+        return;
+      }
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.download = 'GUS_要闻速览_' + week + '.png';
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(function() { URL.revokeObjectURL(url); }, 200);
+      if (btn) btn.textContent = '📷 导出图片';
+      restorePageStates(pageStates);
+    }, 'image/png');
+  } catch (e) {
+    // toBlob threw synchronously (e.g. SecurityError on file://)
+    tryDataURL(canvas, week, btn, pageStates);
+  }
+}
+
+function tryDataURL(canvas, week, btn, pageStates) {
+  // Strategy B: toDataURL → data URI download
+  try {
+    var dataUrl = canvas.toDataURL('image/png');
+    var link = document.createElement('a');
+    link.download = 'GUS_要闻速览_' + week + '.png';
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    if (btn) btn.textContent = '📷 导出图片';
+    restorePageStates(pageStates);
+  } catch (e) {
+    // Strategy C: inline modal (never blocked, no popups)
+    showExportModal(canvas, week, btn, pageStates);
+  }
+}
+
+function showExportModal(canvas, week, btn, pageStates) {
+  if (btn) btn.textContent = '📷 导出图片';
+  restorePageStates(pageStates);
+
+  var old = document.getElementById('export-modal');
+  if (old) old.remove();
+
+  var modal = document.createElement('div');
+  modal.id = 'export-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:99999;display:flex;align-items:center;justify-content:center;';
+
+  var box = document.createElement('div');
+  box.style.cssText = 'background:#fff;padding:20px;border-radius:8px;max-width:90vw;max-height:90vh;overflow:auto;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);';
+
+  var title = document.createElement('p');
+  title.textContent = '右键图片 → 图片存储为... 即可保存';
+  title.style.cssText = 'margin:0 0 12px;font:14px/1.5 system-ui,-apple-system,sans-serif;color:#333;';
+
+  var img = document.createElement('img');
+  try { img.src = canvas.toDataURL('image/png'); } catch(e) { img.src = ''; }
+  img.style.cssText = 'max-width:100%;max-height:70vh;border:1px solid #eee;display:block;margin:0 auto;';
+
+  var closeBtn = document.createElement('button');
+  closeBtn.textContent = '关 闭';
+  closeBtn.style.cssText = 'margin-top:14px;padding:7px 24px;font:13px/1 system-ui,-apple-system,sans-serif;border:0;border-radius:4px;background:#333;color:#fff;cursor:pointer;';
+  closeBtn.onmouseenter = function() { closeBtn.style.background = '#555'; };
+  closeBtn.onmouseleave = function() { closeBtn.style.background = '#333'; };
+  closeBtn.onclick = function() { modal.remove(); };
+
+  box.appendChild(title);
+  box.appendChild(img);
+  box.appendChild(closeBtn);
+  modal.appendChild(box);
+  modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
+  document.body.appendChild(modal);
 }
 
 // ─── EXPORT IMAGE ───
@@ -1792,35 +1887,68 @@ function exportImage() {
 
   if (typeof html2canvas === 'undefined') {
     if (btn) btn.textContent = '📷 导出图片';
-    alert('html2canvas 库加载失败，请检查网络后刷新重试');
+    restorePageStates(pageStates);
     return;
   }
 
+  if (target.offsetWidth === 0 || target.offsetHeight === 0) {
+    if (btn) btn.textContent = '📷 导出图片';
+    restorePageStates(pageStates);
+    return;
+  }
+
+  // ─── CRITICAL: Eliminate ALL cross-origin resources before capture ───
+  // 1. Disable Google Fonts @import rules (the real taint source on file://)
+  var disabledRules = [];
+  var ss = document.styleSheets;
+  for (var si = 0; si < ss.length; si++) {
+    try {
+      var rules = ss[si].cssRules || ss[si].rules;
+      if (!rules) continue;
+      for (var ri = 0; ri < rules.length; ri++) {
+        var rule = rules[ri];
+        if (rule.type === CSSRule.IMPORT_RULE && rule.href && rule.href.indexOf('fonts.googleapis.com') !== -1) {
+          disabledRules.push({ sheet: ss[si], index: ri, rule: rule });
+          ss[si].deleteRule(ri);
+          ri--; // adjust index after deletion
+        }
+      }
+    } catch(e) { /* cross-origin stylesheet, skip */ }
+  }
+
+  // 2. Force local system fonts during capture
+  var fontStyle = document.createElement('style');
+  fontStyle.id = 'export-font-override';
+  fontStyle.textContent = '*{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif !important}';
+  document.head.appendChild(fontStyle);
+
+  // 3. Also force device fonts to avoid any font loading
   html2canvas(target, {
     backgroundColor: '#ffffff',
     scale: 2,
     useCORS: true,
-    allowTaint: true,
+    allowTaint: false,
     logging: false
   }).then(function(canvas) {
-    // Use toBlob to avoid "The operation is insecure" on file:// protocol
-    canvas.toBlob(function(blob) {
-      var url = URL.createObjectURL(blob);
-      var link = document.createElement('a');
-      link.download = 'GUS_要闻速览_' + week + '.png';
-      link.href = url;
-      link.click();
-      // Clean up
-      setTimeout(function() { URL.revokeObjectURL(url); }, 100);
-    }, 'image/png');
-    if (btn) btn.textContent = '📷 导出图片';
-    // Restore page states
-    pageStates.forEach(function(s) { s.el.style.display = s.display; });
+    // Cleanup
+    fontStyle.remove();
+    restoreDisabledRules(disabledRules);
+    tryDownload(canvas, week, btn, pageStates);
   }).catch(function(e) {
+    console.error('html2canvas error:', e);
+    fontStyle.remove();
+    restoreDisabledRules(disabledRules);
     if (btn) btn.textContent = '📷 导出图片';
-    // Restore page states on error too
-    pageStates.forEach(function(s) { s.el.style.display = s.display; });
-    alert('导出失败：' + (e.message || '请重试'));
+    restorePageStates(pageStates);
+  });
+}
+
+// Restore Google Fonts @import rules after export
+function restoreDisabledRules(rules) {
+  rules.forEach(function(item) {
+    try {
+      item.sheet.insertRule(item.rule.cssText, item.index);
+    } catch(e) {}
   });
 }
 
@@ -1851,7 +1979,7 @@ var lineData = {
 
 function drawLineChart(canvas, values, color) {
   var dpr = window.devicePixelRatio || 1;
-  var W = 130, H = 90;
+  var W = 120, H = 62;
   canvas.width = W * dpr;
   canvas.height = H * dpr;
   canvas.style.width = W + 'px';
@@ -1862,7 +1990,7 @@ function drawLineChart(canvas, values, color) {
   var min = Math.min.apply(null, values);
   var max = Math.max.apply(null, values);
   var range = max - min || 1;
-  var padL = 24, padR = 16, padT = 12, padB = 24;
+  var padL = 20, padR = 12, padT = 14, padB = 16;
   var cw = W - padL - padR; // chart area width
   var ch = H - padT - padB; // chart area height
   var weeks = ['W19','W20','W21','W22'];
@@ -2023,21 +2151,31 @@ function injectChartsForPanel(week) {
   });
 }
 
-// Hash-based navigation
+// Hash-based navigation — only active after init completes, to avoid startup override
+var _hashNavReady = false;
 window.addEventListener('hashchange', function() {
-  switchToWeek(getActiveWeek());
+  if (_hashNavReady) switchToWeek(getActiveWeek());
 });
 
-// Initialize from URL hash or default
+// Initialize: always start with the latest week (W22), ignore URL hash
 function init() {
-  var week = getActiveWeek();
-  try { switchToWeek(week); } catch(e) {}
-  try { injectChartsForPanel(week); } catch(e) {}
+  var week = weeks[weeks.length - 1];
+  switchToWeek(week);
+  // Enable hash navigation after init settles
+  setTimeout(function() { _hashNavReady = true; }, 200);
+}
+
+// Guard against double-fire
+var _initFired = false;
+function doInit() {
+  if (_initFired) return;
+  _initFired = true;
+  init();
 }
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', doInit);
 } else {
-  init();
+  doInit();
 }
 
 /* ─── HR 专项 板块筛选 ─── */
@@ -2071,6 +2209,42 @@ document.addEventListener('click', function(e) {
     for (var i = 0; i < drops.length; i++) drops[i].classList.remove('open');
   }
 });
+
+/* ─── FORCE W22 VISIBLE (failsafe, runs after all init) ─── */
+(function forceW22() {
+  // Directly manipulate DOM — do NOT call switchToWeek
+  var target = document.getElementById('week-W22');
+  if (!target) return;
+  // Hide ALL week-panels
+  var all = document.querySelectorAll('.week-panel');
+  for (var i = 0; i < all.length; i++) {
+    all[i].style.display = 'none';
+  }
+  // Walk UP from target: make every ancestor week-panel visible
+  var el = target.parentElement;
+  while (el) {
+    if (el.classList && el.classList.contains('week-panel')) {
+      el.style.display = 'block';
+    }
+    el = el.parentElement;
+  }
+  // Show target
+  target.style.display = 'block';
+  // Hide all .page inside ancestor panels (show only target's .page)
+  var ancestors = document.querySelectorAll('.week-panel');
+  for (var j = 0; j < ancestors.length; j++) {
+    var pg = ancestors[j].querySelector(':scope > .page');
+    if (pg && ancestors[j] !== target) {
+      pg.style.display = 'none';
+    }
+  }
+  // Make sure target's .page is visible
+  var tPage = target.querySelector(':scope > .page');
+  if (tPage) tPage.style.display = '';
+  // Sync dropdowns
+  var sels = document.querySelectorAll('.wn-select-hdr');
+  for (var k = 0; k < sels.length; k++) sels[k].value = 'W22';
+})();
 
 </script>
 
