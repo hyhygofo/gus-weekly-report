@@ -1630,7 +1630,21 @@ function getActiveWeek() {
   return 'W22';
 }
 
+// Build a set of ancestor week-panel IDs that must stay visible
+function getAncestorPanels(targetId) {
+  var ancestors = [];
+  var el = document.getElementById(targetId);
+  while (el && el.parentElement) {
+    el = el.parentElement;
+    if (el.classList && el.classList.contains('week-panel')) {
+      ancestors.push(el.id);
+    }
+  }
+  return ancestors;
+}
+
 function switchToWeek(week) {
+  var targetId = 'week-' + week;
   // Update dropdown
   document.querySelectorAll('.wn-select-hdr').forEach(function(s) {
     if (s.value !== week) s.value = week;
@@ -1639,18 +1653,34 @@ function switchToWeek(week) {
   document.querySelectorAll('.tab').forEach(function(t) {
     t.classList.toggle('active', t.getAttribute('data-week') === week);
   });
-  // Show/hide panels
+  // Collect ancestors that must stay visible (handles nested panel structure)
+  var ancestors = getAncestorPanels(targetId);
+  // Restore all .page elements first (clear previous state)
+  document.querySelectorAll('.week-panel > .page').forEach(function(pg) {
+    pg.style.display = '';
+  });
+  // Show/hide panels – ancestors are visible wrappers but their content hidden
   document.querySelectorAll('.week-panel').forEach(function(p) {
-    const isTarget = p.id === 'week-' + week;
-    p.style.display = isTarget ? 'block' : 'none';
+    var isTarget = p.id === targetId;
+    var isAncestor = ancestors.indexOf(p.id) !== -1;
+    if (isTarget || isAncestor) {
+      p.style.display = 'block';
+      // Hide ancestor content so only the target panel's content shows
+      if (isAncestor) {
+        var ancestorPage = p.querySelector(':scope > .page');
+        if (ancestorPage) ancestorPage.style.display = 'none';
+      }
+    } else {
+      p.style.display = 'none';
+    }
     p.classList.toggle('print-visible', isTarget);
   });
   // Update footer
-  const fl = document.querySelector('.fl');
+  var fl = document.querySelector('.fl');
   if (fl) {
-    const panel = document.getElementById('week-' + week);
-    const period = panel ? panel.querySelector('.hl-period') : null;
-    const periodText = period ? period.textContent.trim() : week;
+    var panel = document.getElementById(targetId);
+    var period = panel ? panel.querySelector('.hl-period') : null;
+    var periodText = period ? period.textContent.trim() : week;
     fl.textContent = 'GUS HRBP · 内部汇报材料，请勿外传 · ' + week + '（' + periodText + '）';
   }
   // Update URL hash
@@ -1671,28 +1701,58 @@ function printCurrentWeek() {
 
 // ─── EXPORT IMAGE ───
 function exportImage() {
-  const week = getActiveWeek();
-  const panel = document.getElementById('week-' + week);
+  var week = getActiveWeek();
+  var panel = document.getElementById('week-' + week);
   if (!panel) return;
+
+  // Restore all .page elements so html2canvas can see full content
+  var allPages = document.querySelectorAll('.week-panel > .page');
+  var pageStates = [];
+  allPages.forEach(function(pg) {
+    pageStates.push({ el: pg, display: pg.style.display });
+    pg.style.display = '';
+  });
+
+  // Ensure all ancestor panels are visible (handles nested panel structure)
+  var ancestors = getAncestorPanels('week-' + week);
+  ancestors.forEach(function(id) {
+    var p = document.getElementById(id);
+    if (p) p.style.display = 'block';
+  });
+
+  // Make target panel and its .page visible
   panel.style.display = 'block';
-  const content = panel.querySelector('.page');
-  const target = content || panel;
-  const btn = document.querySelector('.btn-export');
+  var content = panel.querySelector('.page');
+  if (content) content.style.display = '';
+  var target = content || panel;
+
+  var btn = document.querySelector('.btn-export');
   if (btn) btn.textContent = '⏳ 生成中...';
+
+  if (typeof html2canvas === 'undefined') {
+    if (btn) btn.textContent = '📷 导出图片';
+    alert('html2canvas 库加载失败，请检查网络后刷新重试');
+    return;
+  }
+
   html2canvas(target, {
     backgroundColor: '#ffffff',
     scale: 2,
     useCORS: true,
     logging: false
   }).then(function(canvas) {
-    const link = document.createElement('a');
+    var link = document.createElement('a');
     link.download = 'GUS_要闻速览_' + week + '.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
     if (btn) btn.textContent = '📷 导出图片';
-  }).catch(function() {
+    // Restore page states
+    pageStates.forEach(function(s) { s.el.style.display = s.display; });
+  }).catch(function(e) {
     if (btn) btn.textContent = '📷 导出图片';
-    alert('导出失败，请重试');
+    // Restore page states on error too
+    pageStates.forEach(function(s) { s.el.style.display = s.display; });
+    alert('导出失败：' + (e.message || '请重试'));
   });
 }
 
